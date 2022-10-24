@@ -1,4 +1,9 @@
 import { createStore } from 'vuex'
+import lang from './Lang'
+import categories from '@/store/Categories'
+import promos from '@/store/Promos'
+import cart from '@/store/Cart'
+import dishes from '@/store/Dishes'
 
 export default createStore({
   state: {
@@ -10,5 +15,10 @@ export default createStore({
   actions: {
   },
   modules: {
+    lang,
+    categories,
+    promos,
+    cart,
+    dishes
   }
 })

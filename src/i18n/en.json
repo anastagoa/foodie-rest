@@ -1,0 +1,96 @@
+{
+  "main": {
+    "promo": "Promo",
+    "menu": "Menu",
+    "about": "About",
+    "contacts": "Contacts",
+    "login": "Login",
+    "registration": "Registration",
+    "restaurant": "Author's cuisine restaurant",
+    "home": "In your home",
+    "info": "Information",
+    "social": "We're on social media:"
+  },
+  "menu": {
+    "mainMenu": "Main menu",
+    "coldAppetizers": "Cold appetizers",
+    "hotAppetizers": "Hot appetizers",
+    "salads": "Salads",
+    "soups": "Soups",
+    "meatAndPoultry": "Meat and poultry",
+    "fishAndSeafood": "Fish and seafood",
+    "garnish": "Garnish",
+    "breadAndPastries": "Bread and pastries",
+    "desserts": "Desserts",
+    "drinks": "Drinks"
+  },
+  "coldAppetizers": {
+    "edamame": "Edamame beans with sea salt",
+    "tunaTartar": "Tuna tartar with guacamole",
+    "avocadoToast": "Avocado toast with salmon"
+  },
+  "hotAppetizers": {
+    "tempuraShrimps": "Tempura shrimps with wasabi sauce",
+    "bakedCamembert": "Backed camembert with onion chutney",
+    "crabRisotto": "Risotto with crab and parmesan"
+  },
+  "salads": {
+    "vegSalad": "Vegetable salad with balsamic dressing",
+    "crispyEggplants": "Crispy eggplants with tomatoes",
+    "quinoaSalad": "Quinoa salad with tahini"
+  },
+  "soups": {
+    "tomYam": "Tom Yam with shrimps",
+    "beefRamen": "Ramen with beef",
+    "pumpkinSoup": "Pumpkin soup with crab"
+  },
+  "meatAndPoultry": {
+    "chickenBreast": "Grilled spicy chicken breast",
+    "cannelloniBolognese": "Cannelloni bolognese",
+    "friedNoodles": "Fried noodles with beef and teriyaki sauce"
+  },
+  "fishAndSeafood": {
+    "spaghettiMarinara": "Spaghetti marinara",
+    "grilledDorado": "Grilled dorado",
+    "codCutlets": "Cod cutlets with garlic spinach"
+  },
+  "garnish": {
+    "grilledVeg": "Grilled vegetables",
+    "potatoPuree": "Truffle potato puree",
+    "asianBroccoli": "Asian style broccoli"
+  },
+  "breadAndPastries": {
+    "Wheat": "Wheat bread",
+    "Rye-wheat": "Rye-wheat bread",
+    "garlicBaguette": "Garlic baguette",
+    "glutenFree": "Gluten free bread"
+  },
+  "desserts": {
+    "sanSebCheesecake": "San Sebastian cheesecake",
+    "matchaIceCream": "Matcha ice cream",
+    "lemonCake": "Lemon chiffon cake"
+  },
+  "drinks": {
+    "stillWater": "still water",
+    "sparklingWater": "sparkling water",
+    "lemonade": "lemonade"
+  },
+  "dish": {
+    "gram": "g",
+    "kcal": "kcal"
+  },
+  "order": {
+    "add": "Add",
+    "accept": "We accept orders",
+    "acceptTime": "from 10:00am to 10:30pm",
+    "delivery": "Delivery hours:",
+    "deliveryTime": "from 11:00am to 11:30pm",
+    "auth": "Login / registration",
+    "yourOrder": "Your order",
+    "total": "Total"
+  },
+  "cart": {
+    "empty": "Your cart is empty :(",
+    "choose": "Please choose some dishes and add them to the cart"
+  }
+}

@@ -1,0 +1,80 @@
+<template>
+  <div class="button">
+    <span class="button__label">
+      {{ label }}
+    </span>
+  </div>
+</template>
+
+<script>
+
+export default {
+  props: {
+    label: {
+      type: String,
+      required: true
+    },
+  },
+  // methods: {
+  //   click() {
+  //     this.$emit('click')
+  //   }
+  // },
+}
+</script>
+
+<style  lang="scss" scoped>
+
+.button {
+  position: relative;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: max-content;
+  cursor: pointer;
+
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+
+  color: black;
+  background: transparent;
+  box-shadow: 0 0 6px 0 rgb(0 0 0 / 20%);
+  z-index: 1;
+
+  .button__label {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    border-radius: 8px;
+    //background: linear-gradient(315deg, rgba(239, 239, 239, 0.97) 0%, #eeeaea 44%);
+    background: linear-gradient(315deg, rgba(47, 45, 45, 0.97) 0%, #383838 44%);
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    color: white;
+
+    &::before {
+      top: auto;
+      bottom: 0;
+      height: 100%;
+    }
+  }
+}
+
+</style>

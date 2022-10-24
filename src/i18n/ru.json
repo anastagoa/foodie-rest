@@ -1,0 +1,96 @@
+{
+  "main": {
+    "promo": "Акции",
+    "menu": "Меню",
+    "about": "О нас",
+    "contacts": "Контакты",
+    "login": "Вход",
+    "registration": "Регистрация",
+    "restaurant": "Ресторан авторской кухни",
+    "home": "У вас дома",
+    "info": "Информация",
+    "social": "Мы в соцсетях:"
+  },
+  "menu": {
+    "mainMenu": "Основное меню",
+    "coldAppetizers": "Холодные закуски",
+    "hotAppetizers": "Горячие закуски",
+    "salads": "Салаты",
+    "soups": "Супы",
+    "meatAndPoultry": "Мясо и птица",
+    "fishAndSeafood": "Рыба и морепродукты",
+    "garnish": "Гарниры",
+    "breadAndPastries": "Хлеб и выпечка",
+    "desserts": "Десерты",
+    "drinks": "Напитки"
+  },
+  "coldAppetizers": {
+    "edamame": "Бобы эдамаме с морской солью",
+    "tunaTartar": "Тартар из тунца с гуакамоле",
+    "avocadoToast": "Авокадо тост с лососем"
+  },
+  "hotAppetizers": {
+    "tempuraShrimps": "Креветки темпура с соусрм васаби",
+    "bakedCamembert": "Запеченный камамбер с луковым чатни",
+    "crabRisotto": "Ризотто с крабом и пармезаном"
+  },
+  "salads": {
+    "vegSalad": "Овощной салат с бальзамическим соусом",
+    "crispyEggplants": "Хрустящие баклажаны с томатами",
+    "quinoaSalad": "Киноа салат с тахини"
+  },
+  "soups": {
+    "tomYam": "Том Ям с креветками",
+    "beefRamen": "Рамен с говядиной",
+    "pumpkinSoup": "Тыквенный суп с крабом"
+  },
+  "meatAndPoultry": {
+    "chickenBreast": "Пряная куриная грудка на гриле",
+    "cannelloniBolognese": "Каннелонни болоньезе",
+    "friedNoodles": "Жареная лапша с говядиной и соусом терияки"
+  },
+  "fishAndSeafood": {
+    "spaghettiMarinara": "Спагетти маринара",
+    "grilledDorado": "Дорадо на гриле",
+    "codCutlets": "Котлеты из трески с чесночным шпинатом"
+  },
+  "garnish": {
+    "grilledVeg": "Овощи на гриле",
+    "potatoPuree": "Картовельное пюре с трюфелем",
+    "asianBroccoli": "Брокколи в азиатском стиле"
+  },
+  "breadAndPastries": {
+    "Wheat": "Пшеничный хлеб",
+    "Rye-wheat": "Ржано-пшеничный хлеб",
+    "garlicBaguette": "Чесночный багет",
+    "glutenFree": "Безглютеновый хлеб"
+  },
+  "desserts": {
+    "sanSebCheesecake": "Чизкейк Сан Себастьян",
+    "matchaIceCream": "Мороженое матча",
+    "lemonCake": "Лимонный шифоновый торт"
+  },
+  "drinks": {
+    "stillWater": "Вода б/г",
+    "sparklingWater": "Минеральная вода",
+    "lemonade": "Лимонад"
+  },
+  "dish": {
+    "gram": "г",
+    "kcal": "ккал"
+  },
+  "order": {
+    "add": "Добавить",
+    "accept": "Мы принимаем заказы",
+    "acceptTime": "с 10:00 до 22:30",
+    "delivery": "Доставляем заказы",
+    "deliveryTime": "с 11:00 до 23:30",
+    "auth": "Вход / регистрация",
+    "yourOrder": "Ваш заказ",
+    "total": "Сумма"
+  },
+  "cart": {
+    "empty": "Здесь пока пусто :(",
+    "choose": "Выберите блюда и добавьте их в корзину"
+  }
+}
