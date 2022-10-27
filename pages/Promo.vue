@@ -1,30 +1,82 @@
 <template>
-  <div class="container">
-    <div class="promo-page">
+  <div
+    class="promo-page"
+    :class="[{home : $route.path === '/'}]"
+  >
+    <div class="container">
       <div class="promo-page__title">
         {{ $t('main.promo') }}
       </div>
-      <div class="promo-page__promos">
+      <swiper
+        v-if="$route.path === '/'"
+        ref="promoSwiper"
+        :modules="modules"
+        :slides-per-view="3"
+        :space-between="20"
+        navigation
+        loop
+        :autoplay="{ infinite: true }"
+      >
+        <swiper-slide
+          v-for="promo in promos"
+          :key="promo.id"
+        >
+          <div class="swiper-wrapper">
+            <promo-box :promo="promo" />
+          </div>
+        </swiper-slide>
+      </swiper>
+
+      <div
+        v-else
+        class="promo-page__promos"
+      >
         <div
           v-for="promo in promos"
           :key="promo.id"
-          class="promo-page__promo"
         >
           <promo-box :promo="promo" />
         </div>
       </div>
+
+      <!--      <div class="swiper-button-prev"></div>-->
+      <!--      <div class="swiper-button-next"></div>-->
+      <!--      <div class="swiper-pagination"></div>-->
     </div>
   </div>
 </template>
 
 <script>
 
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+// import 'swiper/scss';
+// import 'swiper/scss/navigation';
+import 'swiper/scss/autoplay'
+// import 'swiper/scss/pagination';
+// import 'swiper/css/bundle';
+import 'swiper/css/bundle';
+
 import {mapGetters} from "vuex";
 import PromoBox from '@/components/ui/PromoBox'
 
+
 export default {
   name: 'Promo',
-  components: { PromoBox },
+  components: { PromoBox, Swiper, SwiperSlide },
+  setup() {
+    // const onSwiper = (swiper) => {
+    //   console.log(swiper);
+    // };
+    // const onSlideChange = () => {
+    //   console.log('slide change');
+    // };
+    return {
+      // onSwiper,
+      // onSlideChange,
+      modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
+    };
+  },
   computed: {
     ...mapGetters({
       promos: 'promos/getAll'
@@ -38,17 +90,32 @@ export default {
 
 <style lang="scss" scoped>
 
+//.swiper {
+//  .swiper-wrapper {
+//    .swiper-button-next
+//    .swiper-button-prev {
+//      &::after {
+//        content: "" !important;
+//        opacity: 0 !important;
+//        display: none;
+//      }
+//    }
+//  }
+//}
+
+
 .promo-page {
   margin-bottom: 30px;
-  //margin-top: 80px;
+  padding: 120px 0 50px 0;
+  //height: 80vh;
 
   .promo-page__title {
     margin-bottom: 20px;
 
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 500;
     text-transform: uppercase;
-    color: #878787;
+    color: #4f4f4f;
   }
 
   .promo-page__promos {
@@ -56,5 +123,16 @@ export default {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
+
+  &.home {
+    padding: 20px 0;
+    .promo-page__title {
+      display: none;
+    }
+  }
+
+
 }
+
+
 </style>

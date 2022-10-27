@@ -73,6 +73,18 @@ export default {
     }
   }
 }
+
+@media(max-width: 512px) {
+  .lang-select {
+    gap: 0 5px;
+
+    .lang-select__options {
+      &:first-of-type {
+        padding-right: 5px;
+      }
+    }
+  }
+}
 </style>
 
 

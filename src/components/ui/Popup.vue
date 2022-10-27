@@ -45,7 +45,7 @@ export default {
 
 .popup {
   position: fixed;
-  z-index: 5;
+  z-index: 15;
   left: 0;
   top: 0;
 
@@ -65,7 +65,6 @@ export default {
     width: 70%;
     min-height: 430px;
     padding: 30px 10px;
-    border-radius: 12px;
 
     display: flex;
     flex-direction: column;

@@ -4,6 +4,8 @@ import Home from '/pages/Home.vue'
 import About from '/pages/About.vue'
 import Promo from '../../pages/Promo.vue'
 import Contacts from '../../pages/Contacts.vue'
+import MenuCategory from '@/components/MenuCategory'
+import NotFound from '@/components/NotFound.vue'
 
 const routes = [
   {
@@ -25,28 +27,23 @@ const routes = [
     path: '/contacts',
     name: 'contacts',
     component: Contacts
-  }
+  },
+  {
+    path: '/menu/:id',
+    name: 'MenuCategory',
+    component: MenuCategory,
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: 'NotFound',
+    component: NotFound
+  },
 ]
 
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  scrollBehavior (to) {
-    if (to.hash) {
-      return {
-        selector: to.hash,
-        behavior: 'smooth',
-      }
-    }
-  }
-  // scrollBehavior(to) {
-  //   if (to.hash) {
-  //     return {
-  //       selector: to.hash
-  //     };
-  //   }
-  // }
 })
 
 export default router

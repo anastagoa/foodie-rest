@@ -1,12 +1,18 @@
 <template>
   <div class="promo-box">
-    <div class="promo-box__img" />
-    <div class="promo-box__content">
-      <div class="promo-box__title">
-        {{ promo.title }}
-      </div>
-      <div class="promo-box__description">
-        {{ promo.description }}
+    <div class="promo-box__layer">
+      <img
+        class="promo-box__img"
+        alt="promo-img"
+        src="@/assets/img/promo.png"
+      >
+      <div class="promo-box__content">
+        <div class="promo-box__title">
+          {{ promo.title }}
+        </div>
+        <div class="promo-box__description">
+          {{ promo.description }}
+        </div>
       </div>
     </div>
   </div>
@@ -28,51 +34,67 @@ export default {
 
 .promo-box {
   width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
+  height: 250px;
+
+  text-align: center;
+  overflow: hidden;
   cursor: pointer;
 
-  .promo-box__img {
+  .promo-box__layer {
+    position: relative;
+    z-index: 1;
+    height: 250px;
     width: 100%;
-    height: 150px;
+    background: rgba(5, 5, 5, 0.9);
 
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-
-    background-image: url('../../assets/img/dish.svg');
-    background-repeat: repeat;
-    background-position: 100% 100%;
-    background-size: 10px;
-    //background-image: url('../../../src/assets/img/main-banner.jpg');
-    //background-repeat: no-repeat;
-    //background-position: center center;
-    //background-size: cover;
-  }
-
-  .promo-box__content {
-    padding: 15px;
-
-    .promo-box__title {
-      margin-bottom: 10px;
-
-      font-size: 22px;
-      font-weight: 500;
-      line-height: 1.35;
+    .promo-box__img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
     }
 
-    .promo-box__description {
-      font-size: 16px;
-      line-height: 1.35;
-      font-weight: 300;
+    .promo-box__content {
+      position: absolute;
+      top: 40%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0 20px;
 
-      max-height: 100px;
-      height: 100px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+
+      .promo-box__title {
+        font-size: 20px;
+        font-weight: 300;
+      }
+      .promo-box__description {
+        font-size: 15px;
+        opacity: 0;
+      }
+    }
+  }
+
+  &:hover {
+    .promo-box__layer {
+      .promo-box__img {
+        opacity: 0.1;
+      }
+
+      .promo-box__content {
+        .promo-box__title {
+          transform: translate3d(0,-20px,0);
+          transition: all 0.7s ease;
+        }
+        .promo-box__description {
+          transition: all 0.7s ease;
+          opacity: 0.7;
+        }
+      }
     }
   }
 }
+
 </style>

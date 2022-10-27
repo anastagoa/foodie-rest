@@ -89,10 +89,9 @@ export default {
 
   .dish-mini-box__left {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
-    gap: 10px;
+    gap: 15px;
 
     .dish-mini-box__img {
       width: 70px;

@@ -102,6 +102,9 @@ export default {
 <style lang="scss" scoped>
 
 .footer {
+  //position: absolute;
+  //left: 0;
+  //bottom: 0;
   width: 100%;
   background-color: #111111;
 
@@ -210,13 +213,13 @@ export default {
           .footer__time-text {
             margin-bottom: 5px;
 
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 300;
             color: #FFFFFF;
             opacity: 0.7;
           }
           .footer__time-info {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
             color: #FFFFFF;
           }

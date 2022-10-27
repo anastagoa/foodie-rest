@@ -92,5 +92,16 @@
   "cart": {
     "empty": "Your cart is empty :(",
     "choose": "Please choose some dishes and add them to the cart"
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "home": "Go to the home page"
+  },
+  "contacts": {
+    "callCenter": "Delivery service call center",
+    "pr": "PR department",
+    "job": "Employment",
+    "purchasing": "Purchasing department",
+    "marketing": "Marketing department"
   }
 }

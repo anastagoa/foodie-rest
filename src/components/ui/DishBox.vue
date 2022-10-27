@@ -61,6 +61,11 @@ export default {
       item: {}
     }
   },
+  watch: {
+    dish(newValue) {
+      this.item = Object.assign({}, newValue)
+    }
+  },
   mounted () {
     this.item = Object.assign({}, this.dish);
   },
@@ -89,12 +94,14 @@ export default {
   grid-template-columns: 100%;
 
   width: 100%;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
   cursor: pointer;
+  background-color: #FFFFFF;
+  overflow: hidden;
 
   &:hover {
-    box-shadow: 0 0 14px 0 rgb(0 0 0 / 20%);
+    box-shadow: 0 0 14px 0 rgb(0 0 0 / 30%);
     transition: all 0.2s linear 0s;
   }
 
@@ -109,17 +116,6 @@ export default {
     background-repeat: repeat;
     background-position: 100% 100%;
     background-size: 10px;
-
-    //background:
-    //  radial-gradient(circle at 50% 0,
-    //    rgba(238, 234, 234, 0.2),
-    //    rgba(134, 133, 133, 0) 70.71%),
-    //  radial-gradient(circle at 6.7% 75%,
-    //    rgba(218, 176, 246, 0.3),
-    //    rgba(224, 224, 216,0) 70.71%),
-    //  radial-gradient(circle at 93.3% 75%,
-    //    rgba(239,239,239,.3),
-    //    rgba(239,239,239,0) 70.71%) beige;
   }
 
   .dish-box__content {

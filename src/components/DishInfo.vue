@@ -54,6 +54,7 @@ export default {
   methods: {
     addToCart (dish) {
       this.$store.dispatch('cart/addToCart', dish)
+      // this.$store.dispatch('cart/updateTotalPrice', dish.price)
     },
   },
 }

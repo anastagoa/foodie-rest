@@ -35,30 +35,29 @@
       >
     </div>
 
-    <div
-      v-for="category in categories"
-      :key="category.id"
-    >
-      <dish-category
-        :id="category.id"
-        :category="category"
-      />
-    </div>
+    <Info />
+
+    <MenuNavbar />
+
+    <Promo />
   </div>
 </template>
 
 <script>
 
 import {mapGetters} from "vuex";
+import Promo from './Promo'
+import MenuNavbar from '@/components/ui/MenuNavbar'
+import Info from '@/components/ui/Info'
 
-import DishCategory from '@/components/DishCategory'
 
 export default {
   name: "Home",
-  components: { DishCategory },
+  components: { Promo, MenuNavbar, Info },
   computed: {
     ...mapGetters({
-      categories: 'categories/getAll'
+      categories: 'categories/getAll',
+      promos: 'promos/getAll'
     }),
   },
   created () {
@@ -97,11 +96,10 @@ export default {
 .home {
   width: 100%;
   height: 100%;
-  //margin-top: 70px;
   position: relative;
 
   .home__banner {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 
     height: 100vh;
     width: 100%;
@@ -177,8 +175,6 @@ export default {
         text-transform: lowercase;
       }
     }
-
-
   }
 
   .home__arrow-up {
@@ -194,6 +190,7 @@ export default {
     height: 50px;
     background-color: black;
     border-radius: 50%;
+    border: 1px solid white;
     z-index: 99;
     cursor: pointer;
     opacity: 0;
@@ -205,6 +202,47 @@ export default {
 
     &.visible {
       opacity: 1;
+    }
+  }
+}
+
+@media(max-width: 991px) {
+  .home {
+    .home__banner {
+      .home__title {
+        .home__title-rest {
+          font-size: 50px;
+        }
+        .home__title-home {
+          font-size: 30px;
+        }
+      }
+    }
+
+    .home__arrow-up {
+      bottom: 80px;
+    }
+  }
+}
+
+@media(max-width: 512px) {
+  .home {
+    .home__banner {
+      .home__title {
+        .home__title-rest {
+          font-size: 40px;
+        }
+        .home__title-home {
+          font-size: 20px;
+        }
+      }
+    }
+    .home__arrow-up {
+      bottom: 30px;
+      right: 30px;
+
+      width: 40px;
+      height: 40px;
     }
   }
 }

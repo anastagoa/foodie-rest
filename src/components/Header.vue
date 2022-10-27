@@ -1,17 +1,18 @@
 <template>
   <header class="header">
-    <img
-      class="header__menu-burger"
-      alt="menu"
-      src="@/assets/img/menu-burger.svg"
-      @mouseover="openSidebar"
-    >
+    <div class="header__menu-burger">
+      <img
+        alt="menu"
+        src="@/assets/img/menu-burger.svg"
+        @mouseover="openSidebar"
+      >
+    </div>
     <router-link
       tag="a"
       to="/"
+      class="header__logo"
     >
       <img
-        class="header__logo"
         alt="logo"
         src="@/assets/img/logo-dark.svg"
       >
@@ -75,7 +76,6 @@
     <Sidebar
       v-if="openedSidebar"
       @closeSidebar="closeSidebar"
-      @scrollToElement="scrollToElement"
     />
 
     <Popup
@@ -143,7 +143,7 @@ export default {
     //     return sum + el
     //   })
     // },
-    itemsAmount() {
+    itemsAmount () {
       let result = []
 
       this.cart.forEach(item => {
@@ -153,12 +153,6 @@ export default {
       return result.reduce((sum, el) => {
         return sum + el
       })
-    }
-  },
-  watch: {
-    total() {
-      // this.$store.dispatch('cart/loadTotalPrice')
-      console.log('cghj')
     }
   },
   methods: {
@@ -180,16 +174,6 @@ export default {
     closeSidebar() {
       this.openedSidebar = false
     },
-    scrollToElement (id) {
-      const el = document.getElementById(id)
-      window.scrollTo({ top: el.offsetTop - 100, left: 0, behavior: 'smooth' })
-
-      // this.$router.push({name: 'pageName', hash: `#${id}` });
-
-
-
-      // this.$router.push({hash: `#${id}` });
-    },
   },
 }
 
@@ -204,15 +188,15 @@ export default {
   z-index: 100;
 
   width: 100%;
-  margin-bottom: 80px;
+  //margin-bottom: 80px;
   padding: 0 10px;
 
-  //border-bottom: 2px solid #a6a4a4;
   box-shadow: 0 0 8px 0 rgb(0 0 0 / 30%);
-  background: #FFFFFF;
+  background: white;
 
   display: grid;
   align-items: center;
+  justify-content: space-between;
   grid-template-columns:
     [menuStart] 60px [menuEnd] 10px
     [logoStart] 150px [logoEnd] 20px
@@ -223,19 +207,23 @@ export default {
 
 
   .header__menu-burger {
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-
     grid-column: menuStart / menuEnd;
+
+    img {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
   }
 
   .header__logo {
-    width: 150px;
-    height: 70px;
-    cursor: pointer;
-
     grid-column: logoStart / logoEnd;
+
+    img {
+      width: 150px;
+      height: 70px;
+      cursor: pointer;
+    }
   }
 
   .header__menu {
@@ -293,6 +281,7 @@ export default {
 
     border-radius: 50%;
     box-shadow: 0 0 8px 0 rgb(0 0 0 / 20%);
+    background-color: #FFFFFF;
 
     grid-column: cartStart / cartEnd;
     cursor: pointer;
@@ -354,6 +343,65 @@ export default {
   }
   .lang-switcher {
     grid-column: langStart / langEnd;
+  }
+}
+
+@media (max-width: 991px) {
+  .header {
+    position: relative;
+    justify-content: space-between;
+
+    grid-template-columns:
+    [menuStart] minmax(20px, 40px) [menuEnd] 10px
+    [logoStart] minmax(130px, 160px) [logoEnd] 20px
+    [authStart] minmax(45px, 70px) [authEnd] 20px
+    [langStart] minmax(20px, 40px) [langEnd] 10px;
+
+    .header__logo {
+      width: 120px;
+    }
+
+    .header__menu {
+      display: none;
+    }
+
+    .header__cart {
+      position: fixed;
+      right: 20px;
+      top: 100px;
+      z-index: 10;
+    }
+  }
+}
+
+@media (max-width: 512px) {
+  .header {
+    grid-template-columns:
+    [menuStart] minmax(20px, 30px) [menuEnd] 10px
+    [logoStart] minmax(20px, 30px) [logoEnd] 40px
+    [authStart] minmax(25px, 40px) [authEnd] 10px
+    [langStart] minmax(20px, 40px) [langEnd] 10px;
+
+    .header__logo {
+      width: 100px;
+    }
+    .header__authorization {
+      .header__login {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .header__cart {
+      background-size: 38px;
+      width: 65px;
+      height: 65px;
+      .cart__not-empty {
+        bottom: -12px;
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+      }
+    }
   }
 }
 

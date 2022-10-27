@@ -1,10 +1,13 @@
 // import axios from 'axios'
 
+let cartItems = window.localStorage.getItem('cartItems');
+let cartCount = window.localStorage.getItem('cartCount');
+
 const cart = {
   namespaced: true,
   state: {
-    cart: [],
-    total: null
+    cart: cartItems ? JSON.parse(cartItems) : [],
+    total: cartCount ? parseInt(cartCount) : 0,
   },
   mutations: {
     SET_CART (state, payload) {
@@ -19,23 +22,23 @@ const cart = {
       // } else {
       //   state.cart.push(payload)
       // }
-
       if (state.cart.length) {
-        let isDishExists = false
+        let found = false
 
         state.cart.map(item => {
           if (payload.title === item.title) {
-            isDishExists = true
+            found = true
             item.quantity++
           }
         })
-        if (!isDishExists) {
+        if (!found) {
           state.cart.push(payload)
           payload.quantity++
         }
       } else {
         state.cart.push(payload)
         payload.quantity++
+        state.total = payload.price //check
       }
     },
     REMOVE_FROM_CART(state, payload) {
@@ -50,15 +53,27 @@ const cart = {
       }
     },
     SET_TOTAL_PRICE(state, payload) {
-      state.total = payload
+      // if(!state.cart.length) {
+      //   state.total = payload
+      // } else {
+        state.total += payload
+      // }
+    },
+    SAVE_CART(state) {
+      window.localStorage.setItem('cartItems', JSON.stringify(state.cart));
+      window.localStorage.setItem('cartCount', JSON.stringify(state.total));
     }
   },
   actions: {
     addToCart({commit}, payload) {
       commit('SET_CART', payload)
+      // commit('SET_TOTAL_PRICE', payload.price)
+      commit('SAVE_CART')
     },
     deleteFromCart({commit}, payload) {
       commit ('REMOVE_FROM_CART', payload)
+      // commit('SET_TOTAL_PRICE')
+      commit('SAVE_CART')
     },
     increaseCartItem({commit}, payload) {
       commit ('INCREASE', payload)
@@ -66,7 +81,7 @@ const cart = {
     decreaseCartItem({commit}, payload) {
       commit ('DECREASE', payload)
     },
-    loadTotalPrice({commit}, payload) {
+    updateTotalPrice({commit}, payload) {
       commit ('SET_TOTAL_PRICE', payload)
     }
   },

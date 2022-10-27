@@ -4,6 +4,13 @@
     @mouseleave="closeSidebar"
   >
     <div class="sidebar__top">
+      <div class="sidebar__cross">
+        <img
+          alt="close-menu"
+          src="@/assets/img/cross.svg"
+          @click="closeSidebar"
+        >
+      </div>
       <div class="sidebar__title">
         {{ $t('menu.mainMenu') }}
       </div>
@@ -14,7 +21,7 @@
       >
         <li
           class="sidebar__item"
-          :class="[activeItem(item.url) ? 'sidebar__item_active' : '']"
+          :class="[activeItem(item.id) ? 'sidebar__item_active' : '']"
           @click="selectCategory(item.id)"
         >
           {{ $t(item.name) }}
@@ -61,11 +68,11 @@ export default {
     }
   },
   methods: {
-    activeItem(url) {
-      return this.currentPath === '/menu' + `${url}`
+    activeItem(id) {
+      return this.currentPath === '/menu/' + `${id}`
     },
     selectCategory (id) {
-      this.$emit('scrollToElement', id)
+      this.$router.replace('/menu/' + `${id}`)
       this.$emit('closeSidebar')
     },
     closeSidebar() {
@@ -94,7 +101,7 @@ export default {
   box-shadow: 4px 0 5px -2px #888;
   background-color: white;
   transition: all .7s ease;
-  padding: 35px 25px 100px 25px;
+  padding: 25px 25px 100px 25px;
   overflow-y: scroll;
   z-index: 4;
   animation: slide 1s ease;
@@ -113,6 +120,16 @@ export default {
   }
 
   .sidebar__top {
+
+    .sidebar__cross {
+      text-align: end;
+      img {
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+      }
+    }
+
     .sidebar__title {
       margin-bottom: 25px;
 

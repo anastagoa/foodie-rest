@@ -65,7 +65,7 @@ export default {
       result = result.reduce((sum, el) => {
         return sum + el
       })
-      this.$store.commit('cart/SET_TOTAL_PRICE', result)
+      // this.$store.dispatch('cart/updateTotalPrice', result)
       return result
     }
   },

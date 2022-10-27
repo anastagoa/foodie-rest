@@ -71,6 +71,11 @@
       "id": 3,
       "title": "Daytime discount 5%",
       "description": "Place an order from 12:00 to 14:00 and get a 5% discount. Promotion is not valid with any other vouchers or promotions."
+    },
+    {
+      "id": 4,
+      "title": "Save the planet",
+      "description": "5% of your order cost is transferred to the Environmental protection fund."
     }
   ],
   "dishes": [
