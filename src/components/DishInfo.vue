@@ -75,10 +75,8 @@ export default {
     width: 100%;
     height: 100%;
 
-    background-image: url('../assets/img/dish.svg');
-    background-repeat: repeat;
-    background-position: 100% 100%;
-    background-size: 15px;
+    background: -webkit-linear-gradient(to bottom, #bdc3c7, rgba(197, 197, 197, 0.55));
+    background: linear-gradient(to bottom, #bdc3c7, rgba(197, 197, 197, 0.55));
   }
 
   .dish-info__content {

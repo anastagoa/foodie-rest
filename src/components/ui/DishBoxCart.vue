@@ -96,12 +96,9 @@ export default {
     .dish-mini-box__img {
       width: 70px;
       height: 70px;
-      //border-radius: 7px;
 
-      background-image: url('../../assets/img/dish.svg');
-      background-repeat: repeat;
-      background-position: 100% 100%;
-      background-size: 5px;
+      background: -webkit-linear-gradient(to bottom, #bdc3c7, rgba(197, 197, 197, 0.55));
+      background: linear-gradient(to bottom, #bdc3c7, rgba(197, 197, 197, 0.55));
     }
 
     .dish-mini-box__title {

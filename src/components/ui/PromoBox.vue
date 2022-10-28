@@ -1,11 +1,7 @@
 <template>
   <div class="promo-box">
     <div class="promo-box__layer">
-      <img
-        class="promo-box__img"
-        alt="promo-img"
-        src="@/assets/img/promo.png"
-      >
+      <div class="promo-box__img" />
       <div class="promo-box__content">
         <div class="promo-box__title">
           {{ promo.title }}
@@ -52,6 +48,11 @@ export default {
       width: 100%;
       height: 100%;
       opacity: 0.3;
+
+      background-image: url('../../../src/assets/img/promo.png'); //https://unsplash.com/photos/rtJCcnZgdRg
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
     }
 
     .promo-box__content {

@@ -109,13 +109,11 @@ export default {
     width: 100%;
     height: 180px;
 
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 
-    background-image: url('../../assets/img/dish.svg');
-    background-repeat: repeat;
-    background-position: 100% 100%;
-    background-size: 10px;
+    background: -webkit-linear-gradient(to bottom, #bdc3c7, rgba(197, 197, 197, 0.55));
+    background: linear-gradient(to bottom, #bdc3c7, rgba(197, 197, 197, 0.55));
   }
 
   .dish-box__content {

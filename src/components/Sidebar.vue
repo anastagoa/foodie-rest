@@ -11,15 +11,14 @@
           @click="closeSidebar"
         >
       </div>
+
       <div class="sidebar__title">
         {{ $t('menu.mainMenu') }}
       </div>
-      <ul
-        v-for="item in menuItems"
-        :key="item.id"
-        class="sidebar__list"
-      >
+      <ul class="sidebar__list">
         <li
+          v-for="item in menuItems"
+          :key="item.id"
           class="sidebar__item"
           :class="[activeItem(item.id) ? 'sidebar__item_active' : '']"
           @click="selectCategory(item.id)"
@@ -27,7 +26,27 @@
           {{ $t(item.name) }}
         </li>
       </ul>
+
+      <div class="sidebar__title">
+        {{ $t('main.info') }}
+      </div>
+
+      <router-link
+        v-for="link in menuLinks"
+        :key="link.id"
+        tag="a"
+        :to="link.path"
+        class="sidebar__list"
+      >
+        <li
+          class="sidebar__item"
+          :class="[link.path === currentPath ? 'sidebar__item_active' : '']"
+        >
+          {{ $t(link.title) }}
+        </li>
+      </router-link>
     </div>
+
 
     <div class="sidebar__bottom">
       <div class="sidebar__tel">
@@ -58,10 +77,11 @@
 <script>
 
 import menuItems from '@/mixins/menuItems.js'
+import menuLinks from '@/mixins/menuLinks'
 
 export default {
   name: 'Sidebar',
-  mixins: [ menuItems ],
+  mixins: [ menuItems, menuLinks ],
   computed: {
     currentPath() {
       return this.$route.path
@@ -101,7 +121,7 @@ export default {
   box-shadow: 4px 0 5px -2px #888;
   background-color: white;
   transition: all .7s ease;
-  padding: 25px 25px 100px 25px;
+  padding: 20px 25px 100px 25px;
   overflow-y: scroll;
   z-index: 4;
   animation: slide 1s ease;
@@ -120,9 +140,10 @@ export default {
   }
 
   .sidebar__top {
-
     .sidebar__cross {
       text-align: end;
+      margin-bottom: 10px;
+
       img {
         width: 28px;
         height: 28px;
@@ -131,7 +152,8 @@ export default {
     }
 
     .sidebar__title {
-      margin-bottom: 25px;
+      margin-bottom: 5px;
+      padding-bottom: 10px;
 
       color: #6b6a6a;
       font-size: 16px;
@@ -140,36 +162,61 @@ export default {
     }
 
     .sidebar__list {
+      display: flex;
+      flex-direction: column;
       padding: 0;
-      margin: 0;
-
-      &:last-of-type {
-        border-bottom: 1px solid rgba(183, 182, 182, 0.69);
-      }
 
       .sidebar__item {
-        padding: 15px 0;
-        border-top: 1px solid rgba(183, 182, 182, 0.69);
+        padding: 7px 0;
 
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
         list-style: none;
         text-decoration: none;
+        text-transform: uppercase;
+        color: #6b6a6a;
         cursor: pointer;
 
-        &:hover {
-          color: #f3be19;
+        background-image: linear-gradient(
+            to right,
+            #c5ccd7,
+            #c5ccd7 50%,
+            #000 50%
+        );
+        background-size: 200% 100%;
+        background-position: -100%;
+        display: inline-block;
+        position: relative;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 0.3s ease-in-out;
 
-          //text-decoration: underline;
-          //text-underline-offset: 4px;
-          transition: all .7s ease;
+        &:before {
+          position: absolute;
+          content: '';
+          background: #c5ccd7;
+          display: block;
+          bottom: -1px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          transition: all 0.5s ease-in-out;
+        }
+
+        &:hover {
+          background-position: 0;
+
+          &:before {
+            width: 80%;
+          }
         }
 
         &.sidebar__item_active {
-          color: #f3be19;
+          background-position: 0;
 
-          //text-decoration: underline;
-          //text-underline-offset: 4px;
+          &:before {
+            width: 0;
+          }
         }
       }
     }

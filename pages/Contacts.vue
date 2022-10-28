@@ -100,6 +100,7 @@ export default {
       padding: 40px;
 
       background-color: #FFFFFF;
+      color: #6c6c6c;
       border: 0;
       box-shadow: 0 0 8px 0 rgb(0 0 0 / 5%);
 
@@ -128,9 +129,9 @@ export default {
       &:hover {
         background-color: #f7f7fa;
         box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
-        transition: all .7s ease;
+        transition: all .6s ease;
 
-        color: rgba(79, 79, 79, 0.8);
+        color: #5d5d5d;
 
         &::before,
         &::after {
