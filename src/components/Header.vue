@@ -57,7 +57,7 @@
       <div
         v-if="!emptyCart"
         class="cart__sum"
-        :class="[!emptyCart ? 'cart__sum_visible' : '']"
+        :class="[showTotal ? 'cart__sum_visible' : '']"
       >
         <span> = </span>
         <span> &nbsp; </span>
@@ -116,7 +116,8 @@ export default {
     return {
       authPopup: false,
       openedSidebar: false,
-      cartPopup: false
+      cartPopup: false,
+      showTotal: false
     }
   },
   computed: {
@@ -143,6 +144,15 @@ export default {
       return result.reduce((sum, el) => {
         return sum + el
       })
+    }
+  },
+  watch: {
+    total () {
+      this.showTotal = true
+
+      setTimeout(() => {
+        this.showTotal = false
+      }, 1000)
     }
   },
   methods: {
@@ -182,7 +192,6 @@ export default {
   z-index: 100;
 
   width: 100%;
-  //margin-bottom: 80px;
   padding: 0 10px;
 
   box-shadow: 0 0 8px 0 rgb(0 0 0 / 30%);
@@ -283,6 +292,11 @@ export default {
     &:hover {
       transform: scale(1.1);
       transition: all .4s ease;
+
+      .cart__sum {
+        transition: all .4s ease;
+        opacity: 1;
+      }
     }
       .cart__not-empty {
         position: absolute;
@@ -315,6 +329,7 @@ export default {
       font-weight: 600;
       color: white;
       opacity: 0;
+      transition: all .4s ease;
 
       display: flex;
       justify-content: flex-start;
@@ -331,6 +346,7 @@ export default {
       }
 
       &.cart__sum_visible {
+        transition: all .4s ease;
         opacity: 1;
       }
     }

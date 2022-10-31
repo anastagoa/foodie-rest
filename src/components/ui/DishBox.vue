@@ -35,7 +35,6 @@
       @closePopup="closePopup"
       @addToCart="addToCart"
     >
-<!--      <DishInfo :dish="dish" />-->
       <DishInfo :dish="item" />
     </Popup>
   </div>

@@ -41,19 +41,8 @@ export default {
       return this.$route.params.id
     },
     category() {
-      // console.log(this.currentPathId)
       return this.categories.find(item => item.id === this.currentPathId)
     }
-  },
-  watch: {
-    // currentPathId() {
-    //   this.currentPathId = this.$route.params.id
-    //   return this.categories.find(item => item.id === this.currentPathId)
-    // }
-    // category() {
-    //   let currentPathId = this.$route.params.id
-    //   return this.categories.find(item => item.id === currentPathId)
-    // }
   },
    created() {
     this.$store.dispatch('categories/loadAll')
@@ -61,7 +50,6 @@ export default {
   methods: {
     addToCart(dish) {
       this.$store.dispatch('cart/addToCart', dish)
-      // this.$store.dispatch('cart/updateTotalPrice', dish.price)
     },
   },
 }

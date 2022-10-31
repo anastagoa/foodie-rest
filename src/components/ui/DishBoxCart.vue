@@ -30,8 +30,6 @@
 
 <script>
 
-// import {mapGetters} from "vuex";
-
 import Counter from '@/components/ui/Counter'
 export default {
   name: 'DishBoxCart',
@@ -47,17 +45,8 @@ export default {
       product: {}
     }
   },
-  // computed: {
-  //   ...mapGetters({
-  //     categories: 'categories/getAll'
-  //   }),
-    // cost() {
-    //  return this.num * this.dish.price
-    // }
-  // }
   async created () {
     this.product = Object.assign({}, this.item);
-    // this.product.quantity = 1
   },
   methods: {
     deleteFromCart() {

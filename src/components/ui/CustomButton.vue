@@ -15,11 +15,6 @@ export default {
       required: true
     },
   },
-  // methods: {
-  //   click() {
-  //     this.$emit('click')
-  //   }
-  // },
 }
 </script>
 
@@ -61,7 +56,6 @@ export default {
     z-index: -1;
 
     border-radius: 8px;
-    //background: linear-gradient(315deg, rgba(239, 239, 239, 0.97) 0%, #eeeaea 44%);
     background: linear-gradient(315deg, rgba(47, 45, 45, 0.97) 0%, #383838 44%);
     transition: all 0.3s ease;
   }
