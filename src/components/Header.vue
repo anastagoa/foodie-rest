@@ -133,17 +133,6 @@ export default {
     emptyCart() {
       return this.cart.length === 0
     },
-    // totalSum() {
-    //   let result = []
-    //
-    //   this.cart.forEach(item => {
-    //     result.push(item.price * item.quantity)
-    //   })
-    //
-    //   return result.reduce((sum, el) => {
-    //     return sum + el
-    //   })
-    // },
     itemsAmount () {
       let result = []
 

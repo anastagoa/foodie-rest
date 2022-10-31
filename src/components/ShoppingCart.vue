@@ -12,9 +12,9 @@
         >
           <dish-box-cart
             :item="item"
-            @deleteFromCart="deleteFromCart(index)"
-            @decreaseNum="decreaseNum(index)"
-            @increaseNum="increaseNum(index)"
+            @deleteFromCart="deleteFromCart(item, index)"
+            @decreaseNum="decreaseNum(item, index)"
+            @increaseNum="increaseNum(item, index)"
           />
         </div>
       </div>
@@ -65,19 +65,32 @@ export default {
       result = result.reduce((sum, el) => {
         return sum + el
       })
-      // this.$store.dispatch('cart/updateTotalPrice', result)
+
       return result
     }
   },
   methods: {
-    deleteFromCart(index) {
-      this.$store.dispatch('cart/deleteFromCart', index)
+    deleteFromCart(item, index) {
+      let params = {
+        item: item,
+        index: index
+      }
+
+      this.$store.dispatch('cart/deleteFromCart', params)
     },
-    increaseNum(index) {
-      this.$store.dispatch('cart/increaseCartItem', index)
+    increaseNum(item, index) {
+      let params = {
+        item: item,
+        index: index
+      }
+      this.$store.dispatch('cart/increaseCartItem', params)
     },
-    decreaseNum(index) {
-      this.$store.dispatch('cart/decreaseCartItem', index)
+    decreaseNum(item, index) {
+      let params = {
+        item: item,
+        index: index
+      }
+      this.$store.dispatch('cart/decreaseCartItem', params)
     }
   },
 }
