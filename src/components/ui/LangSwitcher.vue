@@ -36,8 +36,7 @@ export default {
   },
   methods: {
     switchLocale(lang) {
-      this.$root.$i18n.locale = lang
-      this.$store.dispatch('lang/setCurrent', lang)
+      this.$emit('setLang', lang)
     },
   }
 }

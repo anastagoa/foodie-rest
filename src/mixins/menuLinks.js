@@ -3,12 +3,12 @@ export default {
     menuLinks () {
       return [
         {
-          path: '/promo',
-          title: 'main.promo'
-        },
-        {
           path: '/about',
           title: 'main.about'
+        },
+        {
+          path: '/promo',
+          title: 'main.promo'
         },
         {
           path: '/contacts',

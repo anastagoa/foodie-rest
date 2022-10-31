@@ -1,11 +1,14 @@
+import { defaultLocale } from '@/i18n'
+
 const lang = {
   namespaced: true,
   state: {
-    current: process.env.VUE_APP_I18N_DEFAULT_LOCALE
+    current: defaultLocale
   },
   mutations: {
     SET_CURRENT(state, payload) {
       state.current = payload
+      window.localStorage.setItem('currentLang', JSON.stringify(state.current));
     }
   },
   actions: {

@@ -72,6 +72,7 @@
       :all-locales="allLocales"
       :current-lang="currentLang"
       @closeSidebar="closeSidebar"
+      @setLang="setLang"
     />
     <Sidebar
       v-if="openedSidebar"
@@ -174,6 +175,10 @@ export default {
     closeSidebar() {
       this.openedSidebar = false
     },
+    setLang(lang) {
+      this.$root.$i18n.locale = lang
+      this.$store.dispatch('lang/setCurrent', lang)
+    }
   },
 }
 

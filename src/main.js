@@ -13,7 +13,7 @@ const messages = Object.assign(languages)
 const i18n = createI18n({
   legacy: false,
   locale: defaultLocale,
-  fallbackLocale: 'en',
+  fallbackLocale: ['en', 'ru'],
   messages
 })
 

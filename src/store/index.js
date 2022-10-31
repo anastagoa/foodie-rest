@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import lang from './Lang'
+import lang from '@/store/Lang'
 import categories from '@/store/Categories'
 import promos from '@/store/Promos'
 import cart from '@/store/Cart'

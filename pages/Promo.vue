@@ -9,12 +9,10 @@
       </div>
       <swiper
         v-if="$route.path === '/'"
-        ref="promoSwiper"
         :modules="modules"
-        :slides-per-view="3"
-        :space-between="20"
-        navigation
+        :navigation="{nextEl: null, prevEl: null}"
         loop
+        :breakpoints="{ 767: {slidesPerView: 2, spaceBetween: 10}, 1200: {slidesPerView: 3, spaceBetween: 20}}"
         :autoplay="{ infinite: true }"
       >
         <swiper-slide
@@ -38,10 +36,6 @@
           <promo-box :promo="promo" />
         </div>
       </div>
-
-      <!--      <div class="swiper-button-prev"></div>-->
-      <!--      <div class="swiper-button-next"></div>-->
-      <!--      <div class="swiper-pagination"></div>-->
     </div>
   </div>
 </template>
@@ -50,11 +44,6 @@
 
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-// import 'swiper/scss';
-// import 'swiper/scss/navigation';
-import 'swiper/scss/autoplay'
-// import 'swiper/scss/pagination';
-// import 'swiper/css/bundle';
 import 'swiper/css/bundle';
 
 import {mapGetters} from "vuex";
@@ -74,6 +63,16 @@ export default {
     return {
       // onSwiper,
       // onSlideChange,
+      // swiperOptions: {
+      //   slidesPerView: 3,
+      //   spaceBetween: 20,
+      //   navigation: {
+      //     nextEl: null,
+      //     prevEl: null
+      //   },
+      //   loop: true,
+      //   autoplay: { infinite: true }
+      // },
       modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
     };
   },
@@ -89,20 +88,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-//.swiper {
-//  .swiper-wrapper {
-//    .swiper-button-next
-//    .swiper-button-prev {
-//      &::after {
-//        content: "" !important;
-//        opacity: 0 !important;
-//        display: none;
-//      }
-//    }
-//  }
-//}
-
 
 .promo-page {
   margin-bottom: 30px;
@@ -130,8 +115,6 @@ export default {
       display: none;
     }
   }
-
-
 }
 
 
