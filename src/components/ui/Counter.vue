@@ -141,4 +141,21 @@ export default {
     }
   }
 }
+
+@media(max-width: 512px) {
+  .counter__box {
+    .counter__quantity-minus {
+      width: 28px;
+      height: 28px;
+    }
+
+    .counter__quantity-plus {
+      width: 28px;
+      height: 28px;
+    }
+    .counter__quantity {
+      font-size: 15px;
+    }
+  }
+}
 </style>

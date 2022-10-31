@@ -74,4 +74,47 @@ export default {
     }
   }
 }
+
+@media(max-width: 991px) {
+  .main-info {
+    margin-bottom: 40px;
+    .main-info__item {
+      .main-info__item-img {
+        width: 50px;
+        height: 50px;
+      }
+      .main-info__item-text {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+@media(max-width: 512px) {
+  .main-info {
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    gap: 10px;
+
+    .main-info__item {
+      display: grid;
+      grid-template-columns: calc(20% - 5px) calc(80% - 5px);
+      align-items: center;
+      gap: 10px;
+
+      margin-bottom: 10px;
+
+      .main-info__item-img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .main-info__item-text {
+        text-align: start;
+        font-size: 18px;
+      }
+    }
+  }
+}
 </style>

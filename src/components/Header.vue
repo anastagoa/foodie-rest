@@ -281,6 +281,7 @@ export default {
     background-size: 30px;
     width: 55px;
     height: 55px;
+    z-index: 4;
 
     border-radius: 50%;
     box-shadow: 0 0 8px 0 rgb(0 0 0 / 20%);
@@ -379,7 +380,6 @@ export default {
       position: fixed;
       right: 20px;
       top: 100px;
-      z-index: 10;
     }
   }
 }

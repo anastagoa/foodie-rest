@@ -132,4 +132,33 @@ export default {
     }
   }
 }
+
+@media (max-width: 1199px) {
+  .dish-info {
+    grid-template-rows: 400px;
+  }
+}
+
+@media (max-width: 991px) {
+  .dish-info {
+    grid-template-columns: 100%;
+    grid-template-rows: 350px 1fr;
+    gap: 20px 0;
+
+    .dish-info__content {
+      .dish-info__ingredients {
+        max-height: 150px;
+        -webkit-line-clamp: 6;
+      }
+      .dish-info__amount {
+        padding: 15px 5px;
+      }
+    }
+  }
+}
+@media (max-width: 512px) {
+  .dish-info {
+    grid-template-rows: 250px 1fr;
+  }
+}
 </style>

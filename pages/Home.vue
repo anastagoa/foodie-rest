@@ -209,9 +209,10 @@ export default {
 @media(max-width: 991px) {
   .home {
     .home__banner {
+      margin-bottom: 40px;
       .home__title {
         .home__title-rest {
-          font-size: 50px;
+          font-size: 40px;
         }
         .home__title-home {
           font-size: 30px;
@@ -230,7 +231,7 @@ export default {
     .home__banner {
       .home__title {
         .home__title-rest {
-          font-size: 40px;
+          font-size: 30px;
         }
         .home__title-home {
           font-size: 20px;

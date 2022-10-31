@@ -249,4 +249,9 @@ export default {
   }
 }
 
+@media(max-width: 512px) {
+  .sidebar {
+    width: 100%;
+  }
+}
 </style>

@@ -102,22 +102,18 @@ export default {
 <style lang="scss" scoped>
 
 .footer {
-  //position: absolute;
-  //left: 0;
-  //bottom: 0;
   width: 100%;
   background-color: #111111;
 
   .footer__content {
     display: grid;
     grid-template-columns: 25% 75%;
-    padding: 40px 20px 20px 20px;  //delete
+    padding: 40px 20px 20px 20px;
 
     .footer__left {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      //justify-content: space-between;
 
       .footer__logo {
         width: 150px;
@@ -229,4 +225,63 @@ export default {
   }
 }
 
+@media(max-width: 991px) {
+  .footer {
+    .footer__content {
+      display: grid;
+      grid-template-columns: 100%;
+      gap: 30px;
+      padding: 40px 5px 20px 5px;
+
+      .footer__left {
+        justify-content: center;
+        gap: 5px;
+
+        .footer__logo {
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 600px) {
+  .footer {
+    .footer__content {
+      display: grid;
+      grid-template-columns: 100%;
+      gap: 30px;
+
+      .footer__left {
+        justify-content: center;
+        gap: 5px;
+
+        .footer__logo {
+          height: 50px;
+        }
+      }
+
+      .footer__right {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px 10px;
+      }
+
+      .footer__info {
+        .footer__tel {
+          margin-bottom: 5px;
+        }
+
+        .footer__time {
+          .footer__time-block {
+            .footer__time-text {
+              margin-bottom: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>

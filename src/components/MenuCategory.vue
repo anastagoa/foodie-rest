@@ -88,7 +88,7 @@ export default {
 
 @media(max-width: 991px) {
   .menu-category {
-    padding: 0 25px;
+    padding: 25px;
     .menu-category__dishes {
       grid-template-columns: repeat(2, 1fr);
       gap: 15px

@@ -12,7 +12,7 @@
         :modules="modules"
         :navigation="{nextEl: null, prevEl: null}"
         loop
-        :breakpoints="{ 767: {slidesPerView: 2, spaceBetween: 10}, 1200: {slidesPerView: 3, spaceBetween: 20}}"
+        :breakpoints="breakpoints"
         :autoplay="{ infinite: true }"
       >
         <swiper-slide
@@ -57,22 +57,26 @@ export default {
     // const onSwiper = (swiper) => {
     //   console.log(swiper);
     // };
-    // const onSlideChange = () => {
-    //   console.log('slide change');
-    // };
     return {
       // onSwiper,
-      // onSlideChange,
-      // swiperOptions: {
-      //   slidesPerView: 3,
-      //   spaceBetween: 20,
-      //   navigation: {
-      //     nextEl: null,
-      //     prevEl: null
-      //   },
-      //   loop: true,
-      //   autoplay: { infinite: true }
-      // },
+      breakpoints: {
+        300: {
+          slidesPerView: 1.2,
+          spaceBetween: 10,
+          centeredSlides: true,
+          initialSlide: 2
+        },
+        513: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+          initialSlide: 1
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+          initialSlide: 1
+        }
+      },
       modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
     };
   },
@@ -92,7 +96,6 @@ export default {
 .promo-page {
   margin-bottom: 30px;
   padding: 120px 0 50px 0;
-  //height: 80vh;
 
   .promo-page__title {
     margin-bottom: 20px;
@@ -117,5 +120,10 @@ export default {
   }
 }
 
+@media(max-width: 512px) {
+  .container {
+    padding: 0;
+  }
+}
 
 </style>

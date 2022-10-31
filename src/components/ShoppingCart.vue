@@ -36,6 +36,7 @@
     >
       {{ $t('order.total') }}:
       {{ totalCost }}
+      <span> ₽ </span>
     </div>
   </div>
 </template>

@@ -61,7 +61,6 @@ export default {
   .popup__box {
     position: relative;
 
-    //width: 620px;
     width: 70%;
     min-height: 430px;
     padding: 30px 10px;
@@ -116,10 +115,31 @@ export default {
   }
 }
 
+@media (max-width: 1199px) {
+  .popup {
+    .popup__box {
+      width: 85%;
+    }
+    &.shopping-cart-popup {
+      .popup__box {
+        width: 80%;
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .popup {
     .popup__box {
-      width: 490px;
+      width: 95%;
+    }
+    &.shopping-cart-popup {
+      .popup__box {
+        width: 90%;
+        .popup__content-block {
+          padding: 0 20px 10px 20px;
+        }
+      }
     }
   }
 }
@@ -127,8 +147,9 @@ export default {
 @media (max-width: 512px) {
   .popup {
     .popup__box {
-      width: 90%;
-      max-height: 500px;
+      width: 95%;
+      max-height: 700px;
+      margin: 85px auto 0 auto;
       padding: 20px 0;
 
       overflow: hidden;
@@ -144,6 +165,31 @@ export default {
 
       .popup__content-block {
         padding: 0 20px 10px 20px;
+
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        &::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 10px 10px #FFFFFF;
+          border: solid 3px transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          box-shadow: inset 0 0 10px 10px silver;
+          border: solid 3px transparent;
+        }
+      }
+    }
+    &.shopping-cart-popup {
+      .popup__box {
+        width: 98%;
+
+        .popup__content-block {
+          padding: 0 5px 10px 15px;
+        }
       }
     }
   }
