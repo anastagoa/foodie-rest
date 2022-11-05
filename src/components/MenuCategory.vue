@@ -98,7 +98,7 @@ export default {
 
 @media(max-width: 600px) {
   .menu-category {
-    padding: 0 15px;
+    padding: 30px 15px;
     .menu-category__dishes {
       grid-template-columns: 100%;
     }

@@ -19,7 +19,6 @@ const dishes = {
           commit('SET_ALL', payload.data)
           return payload.data
         })).catch(error => {
-          console.log(error)
           return error
         })
     }

@@ -99,7 +99,7 @@ export default {
       width: 100%;
       padding: 40px;
 
-      background-color: #FFFFFF;
+      background-color: white;
       color: #6c6c6c;
       border: 0;
       box-shadow: 0 0 8px 0 rgb(0 0 0 / 5%);

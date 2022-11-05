@@ -24,57 +24,6 @@
     "desserts": "Desserts",
     "drinks": "Drinks"
   },
-  "coldAppetizers": {
-    "edamame": "Edamame beans with sea salt",
-    "tunaTartar": "Tuna tartar with guacamole",
-    "avocadoToast": "Avocado toast with salmon"
-  },
-  "hotAppetizers": {
-    "tempuraShrimps": "Tempura shrimps with wasabi sauce",
-    "bakedCamembert": "Backed camembert with onion chutney",
-    "crabRisotto": "Risotto with crab and parmesan"
-  },
-  "salads": {
-    "vegSalad": "Vegetable salad with balsamic dressing",
-    "crispyEggplants": "Crispy eggplants with tomatoes",
-    "quinoaSalad": "Quinoa salad with tahini"
-  },
-  "soups": {
-    "tomYam": "Tom Yam with shrimps",
-    "beefRamen": "Ramen with beef",
-    "pumpkinSoup": "Pumpkin soup with crab"
-  },
-  "meatAndPoultry": {
-    "chickenBreast": "Grilled spicy chicken breast",
-    "cannelloniBolognese": "Cannelloni bolognese",
-    "friedNoodles": "Fried noodles with beef and teriyaki sauce"
-  },
-  "fishAndSeafood": {
-    "spaghettiMarinara": "Spaghetti marinara",
-    "grilledDorado": "Grilled dorado",
-    "codCutlets": "Cod cutlets with garlic spinach"
-  },
-  "garnish": {
-    "grilledVeg": "Grilled vegetables",
-    "potatoPuree": "Truffle potato puree",
-    "asianBroccoli": "Asian style broccoli"
-  },
-  "breadAndPastries": {
-    "Wheat": "Wheat bread",
-    "Rye-wheat": "Rye-wheat bread",
-    "garlicBaguette": "Garlic baguette",
-    "glutenFree": "Gluten free bread"
-  },
-  "desserts": {
-    "sanSebCheesecake": "San Sebastian cheesecake",
-    "matchaIceCream": "Matcha ice cream",
-    "lemonCake": "Lemon chiffon cake"
-  },
-  "drinks": {
-    "stillWater": "Still water",
-    "sparklingWater": "Sparkling water",
-    "lemonade": "Lemonade"
-  },
   "dish": {
     "gram": "g",
     "kcal": "kcal"
@@ -87,7 +36,16 @@
     "deliveryTime": "from 11:00am to 11:30pm",
     "auth": "Login / registration",
     "yourOrder": "Your order",
-    "total": "Total"
+    "total": "Total",
+    "contactInfo": "Contact info",
+    "haveAccount": "I have an account",
+    "newUser": "I'm a new user",
+    "address": "Address",
+    "comment": "Comment",
+    "order": "Order",
+    "name": "Name",
+    "email": "Email",
+    "telephone": "Telephone number"
   },
   "cart": {
     "empty": "Your cart is empty :(",

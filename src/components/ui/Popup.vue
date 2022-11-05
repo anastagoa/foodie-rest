@@ -90,8 +90,8 @@ export default {
 
       .popup__top-cross {
         .popup__cross-img {
-          width: 35px;
-          height: 35px;
+          width: 25px;
+          height: 25px;
           cursor: pointer;
         }
       }

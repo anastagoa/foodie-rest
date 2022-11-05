@@ -85,7 +85,6 @@ export default {
     scrollDown() {
       let pageHeight = window.innerHeight;
       window.scrollBy({top: pageHeight - 75, behavior: "smooth" });
-      //@TODO check adaptive
     }
   },
 }

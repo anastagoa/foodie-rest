@@ -34,17 +34,6 @@
     </nav>
 
     <div
-      class="header__authorization"
-      @click="openAuthPopup"
-    >
-      <img
-        class="header__login"
-        alt="logo"
-        src="@/assets/img/auth.svg"
-      >
-    </div>
-
-    <div
       class="header__cart"
       @click="openCartPopup"
     >
@@ -80,13 +69,6 @@
     />
 
     <Popup
-      v-if="authPopup"
-      :title="`${$t('order.auth')}`"
-      @closePopup="closeAuthPopup"
-    >
-      <Authorization />
-    </Popup>
-    <Popup
       v-if="cartPopup"
       :class="['shopping-cart-popup']"
       :title="`${$t('order.yourOrder')}:`"
@@ -105,16 +87,14 @@ import LangSwitcher from '@/components/ui/LangSwitcher'
 import Popup from '@/components/ui/Popup'
 import Sidebar from '@/components/Sidebar'
 import menuLinks from '@/mixins/menuLinks'
-import Authorization from '@/components/Authorization'
 import ShoppingCart from '@/components/ShoppingCart'
 
 export default {
   name: 'Header',
-  components: { ShoppingCart, Sidebar, LangSwitcher, Popup, Authorization },
+  components: { ShoppingCart, Sidebar, LangSwitcher, Popup },
   mixins: [ menuLinks ],
   data () {
     return {
-      authPopup: false,
       openedSidebar: false,
       cartPopup: false,
       showTotal: false
@@ -156,12 +136,6 @@ export default {
     }
   },
   methods: {
-    openAuthPopup () {
-      this.authPopup = true
-    },
-    closeAuthPopup () {
-      this.authPopup = false
-    },
     openCartPopup () {
       this.cartPopup = true
     },
@@ -204,7 +178,6 @@ export default {
     [menuStart] 60px [menuEnd] 10px
     [logoStart] 150px [logoEnd] 20px
     [navStart] minmax(100px, max-content) [navEnd] 1fr
-    [authStart] 60px [authEnd] 120px
     [cartStart] 100px [cartEnd] 20px
     [langStart] 30px [langEnd] 45px;
 
@@ -255,20 +228,6 @@ export default {
           text-underline-offset: 2px;
         }
       }
-    }
-  }
-
-  .header__authorization {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    grid-column: authStart / authEnd;
-
-    .header__login {
-      width: 27px;
-      height: 27px;
-      cursor: pointer;
     }
   }
 
@@ -365,7 +324,6 @@ export default {
     grid-template-columns:
     [menuStart] minmax(20px, 40px) [menuEnd] 10px
     [logoStart] minmax(130px, 160px) [logoEnd] 20px
-    [authStart] minmax(45px, 70px) [authEnd] 20px
     [langStart] minmax(20px, 40px) [langEnd] 10px;
 
     .header__logo {
@@ -389,7 +347,6 @@ export default {
     grid-template-columns:
     [menuStart] minmax(20px, 30px) [menuEnd] 10px
     [logoStart] minmax(20px, 30px) [logoEnd] 40px
-    [authStart] minmax(25px, 40px) [authEnd] 10px
     [langStart] minmax(20px, 40px) [langEnd] 10px;
 
     .header__logo {

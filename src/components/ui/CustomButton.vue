@@ -69,6 +69,14 @@ export default {
       height: 100%;
     }
   }
+
+  &.order-btn {
+    border-radius: 3px;
+
+    &::before {
+      border-radius: 3px;
+    }
+  }
 }
 
 </style>

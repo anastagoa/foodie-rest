@@ -9,17 +9,6 @@ const cart = {
   },
   mutations: {
     SET_CART (state, payload) {
-      // if (state.cart.length) {
-      //   state.cart.map(item => {
-      //     if (payload.title === item.title) {
-      //       item.quantity++
-      //     } else {
-      //       state.cart.push(payload)
-      //     }
-      //   })
-      // } else {
-      //   state.cart.push(payload)
-      // }
       if (state.cart.length) {
         let found = false
 
@@ -45,6 +34,7 @@ const cart = {
       state.cart.splice(params.index, 1)
       let sum = params.item.price * params.item.quantity
       state.total -= sum
+      params.item.quantity = 0
     },
     INCREASE(state, params) {
       state.cart[params.index].quantity++
