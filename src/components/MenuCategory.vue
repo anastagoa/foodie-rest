@@ -26,11 +26,15 @@
 import {mapGetters} from "vuex";
 import MenuNavbar from '@/components/ui/MenuNavbar'
 import DishBox from '@/components/ui/DishBox'
+import { useMeta } from 'vue-meta'
 
 export default {
   name: 'DishCategory',
-  components: { MenuNavbar,
-    DishBox
+  components: { MenuNavbar, DishBox },
+  setup() {
+    useMeta({
+      title: 'Menu'
+    })
   },
   computed: {
     ...mapGetters({

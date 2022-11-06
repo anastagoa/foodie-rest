@@ -48,6 +48,13 @@
     "telephone": "Telephone number",
     "describe": "Your comments to the order (optional)"
   },
+  "metaInfo": {
+    "foodie": "Foodie",
+    "about": "About",
+    "promo": "Promo",
+    "contacts": "Contacts",
+    "menu": "Menu"
+  },
   "cart": {
     "empty": "Your cart is empty :(",
     "choose": "Please choose some dishes and add them to the cart"

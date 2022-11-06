@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 let cartItems = window.localStorage.getItem('cartItems');
 let cartCount = window.localStorage.getItem('cartCount');
 
@@ -52,22 +54,55 @@ const cart = {
     }
   },
   actions: {
-    addToCart({commit}, payload) {
+    addToCart ({ commit }, payload) {
       commit('SET_CART', payload)
       commit('SAVE_CART')
     },
-    deleteFromCart({commit}, payload) {
-      commit ('REMOVE_FROM_CART', payload)
+    deleteFromCart ({ commit }, payload) {
+      commit('REMOVE_FROM_CART', payload)
       commit('SAVE_CART')
     },
-    increaseCartItem({commit}, payload) {
-      commit ('INCREASE', payload)
+    increaseCartItem ({ commit }, payload) {
+      commit('INCREASE', payload)
       commit('SAVE_CART')
     },
-    decreaseCartItem({commit}, payload) {
-      commit ('DECREASE', payload)
+    decreaseCartItem ({ commit }, payload) {
+      commit('DECREASE', payload)
       commit('SAVE_CART')
     },
+    makeAnOrder(payload) {
+      return axios('http://localhost:3000/orders', {
+        method: 'POST',
+        payload
+        // body: payload
+
+        // name: payload.name,
+        // email: payload.email,
+        // phone: payload.phone,
+        // address: payload.address,
+        // comment: payload.comment,
+        // cart: JSON.stringify(this.state.cart)
+      })
+        .then((payload => {
+          // commit('SET_ORDER', payload.data)
+          console.log(payload)
+          return payload.data
+        })).catch(error => {
+          return error
+        })
+    },
+
+    // async makeAnOrder () {
+    //   return new Promise((resolve, reject) => {
+    //     API.post('players')
+    //     }).then(response => {
+    //       resolve(response)
+    //     }).catch(error => {
+    //       reject(error)
+    //     })
+    //   })
+    // }
+
   },
   getters: {
     getCart(state) {

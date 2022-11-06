@@ -1,34 +1,11 @@
 <template>
-  <div
-    class="promo-page"
-    :class="[{home : $route.path === '/'}]"
-  >
+  <div class="promo-page">
     <div class="container">
       <div class="promo-page__title">
         {{ $t('main.promo') }}
       </div>
-      <swiper
-        v-if="$route.path === '/'"
-        :modules="modules"
-        :navigation="{nextEl: null, prevEl: null}"
-        loop
-        :breakpoints="breakpoints"
-        :autoplay="{ infinite: true }"
-      >
-        <swiper-slide
-          v-for="promo in promos"
-          :key="promo.id"
-        >
-          <div class="swiper-wrapper">
-            <promo-box :promo="promo" />
-          </div>
-        </swiper-slide>
-      </swiper>
 
-      <div
-        v-else
-        class="promo-page__promos"
-      >
+      <div class="promo-page__promos">
         <div
           v-for="promo in promos"
           :key="promo.id"
@@ -42,43 +19,18 @@
 
 <script>
 
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css/bundle';
-
 import {mapGetters} from "vuex";
 import PromoBox from '@/components/ui/PromoBox'
+import { useMeta } from 'vue-meta'
 
 
 export default {
   name: 'Promo',
-  components: { PromoBox, Swiper, SwiperSlide },
+  components: { PromoBox },
   setup() {
-    // const onSwiper = (swiper) => {
-    //   console.log(swiper);
-    // };
-    return {
-      // onSwiper,
-      breakpoints: {
-        300: {
-          slidesPerView: 1.2,
-          spaceBetween: 10,
-          centeredSlides: true,
-          initialSlide: 2
-        },
-        513: {
-          slidesPerView: 2,
-          spaceBetween: 10,
-          initialSlide: 1
-        },
-        1200: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-          initialSlide: 1
-        }
-      },
-      modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
-    };
+    useMeta({
+      title: 'Promo'
+    })
   },
   computed: {
     ...mapGetters({
@@ -111,18 +63,32 @@ export default {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
+}
 
-  &.home {
-    padding: 20px 0;
-    .promo-page__title {
-      display: none;
+@media(max-width: 1199px) {
+  .promo-page {
+    .promo-page__promos {
+      gap: 10px;
+    }
+  }
+}
+
+@media(max-width: 991px) {
+  .promo-page {
+    padding-top: 60px;
+    .promo-page__promos {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
     }
   }
 }
 
 @media(max-width: 512px) {
-  .container {
-    padding: 0;
+  .promo-page {
+    .promo-page__promos {
+      grid-template-columns: 100%;
+      gap: 10px;
+    }
   }
 }
 

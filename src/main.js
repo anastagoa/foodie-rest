@@ -7,8 +7,10 @@ import MainLayout from '@/layouts/MainLayout.vue'
 import { createI18n } from 'vue-i18n'
 import { languages } from '@/i18n'
 import { defaultLocale } from '@/i18n'
+import { createMetaManager, plugin as metaPlugin } from 'vue-meta'
 
 const messages = Object.assign(languages)
+// const metaManager = createMetaManager()
 
 const i18n = createI18n({
   legacy: false,
@@ -29,6 +31,9 @@ createApp(App)
   .use(store)
   .use(router)
   .use(i18n)
+  .use(createMetaManager())
+  .use(metaPlugin) // optional, only needed for OptionsAPI (see below)
+
 //   .directive(vClickOutside, {
 //   mounted(el, binding) {
 //     el.clickOutsideEvent = function(event) {

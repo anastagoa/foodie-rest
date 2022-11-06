@@ -29,8 +29,8 @@
         </div>
 
         <div class="about-page__img-wrapper">
-          <div class="about-page__img"/>
-          <div class="about-page__img"/>
+          <div class="about-page__img" />
+          <div class="about-page__img" />
         </div>
       </div>
     </div>
@@ -44,9 +44,16 @@
 <script>
 import CustomButton from '@/components/ui/CustomButton'
 import Info from '@/components/ui/Info'
+import { useMeta } from 'vue-meta'
+
 export default {
   name: 'About',
-  components: { Info, CustomButton }
+  components: { Info, CustomButton },
+  setup() {
+    useMeta({
+      title: 'About'
+    })
+  }
 }
 </script>
 

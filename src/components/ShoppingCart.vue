@@ -97,18 +97,14 @@
             >
           </div>
           <div class="shopping-cart__order-block">
-            <label
-              for="comment"
-              class="shopping-cart__order-block-label"
-            >
+            <label class="shopping-cart__order-block-label">
               {{ $t('order.comment') }}
             </label>
-            <input
+            <textarea
               id="comment"
               v-model="comment"
-              type="text"
               :placeholder="`${$t('order.describe')}`"
-            >
+            />
           </div>
           <CustomButton
             :label="`${$t('order.order')}`"
@@ -201,8 +197,8 @@ export default {
     validateForm() {
       let formInputs = document.getElementsByTagName('input')
 
-      Array.from(formInputs).forEach(function (input) {
-        if (input.value === '' && input.id !== 'comment') {
+      Array.from(formInputs).forEach(input => {
+        if (input.value === '') {
           input.classList.add('error');
         } else {
           input.classList.remove('error');
@@ -224,16 +220,18 @@ export default {
       return re.test(String(phone));
     },
     onSubmit() {
-      // let params = {
-      //   name: this.name,
-      //   email: this.email,
-      //   phone: this.phone,
-      //   address: this.address,
-      //   comment: this.comment
-      // }
+      let params = {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        address: this.address,
+        comment: this.comment
+      }
+
+      this.$store.dispatch('cart/makeAnOrder', params)
 
       // return new Promise((resolve, reject) => {
-      //   this.$store.dispatch('order/sendData', params).then(() => {
+      //   this.$store.dispatch('cart/makeAnOrder', params).then(() => {
       //     resolve()
       //   })
       //     .catch((err) => {
@@ -318,7 +316,7 @@ export default {
         color: #888888;
       }
 
-      input {
+      input, textarea {
         width: 100%;
         height: 48px;
         padding: 8px 13px 7px 13px;
@@ -332,10 +330,6 @@ export default {
 
         &.error {
           border: 1px solid red;
-        }
-
-        &#comment {
-          height: 100px;
         }
 
         &:hover,
@@ -361,6 +355,11 @@ export default {
             border-color: rgba(136, 136, 136, 0.5);
           }
         }
+      }
+
+      textarea {
+        height: 100px;
+        resize: none;
       }
 
       .shopping-cart__error {

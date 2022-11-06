@@ -63,8 +63,16 @@
 </template>
 
 <script>
+
+import { useMeta } from 'vue-meta'
+
 export default {
-  name: 'Contacts'
+  name: 'Contacts',
+  setup() {
+    useMeta({
+      title: 'Contacts'
+    })
+  }
 }
 </script>
 
@@ -174,4 +182,5 @@ export default {
     }
   }
 }
+
 </style>

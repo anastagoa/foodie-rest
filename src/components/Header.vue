@@ -115,15 +115,19 @@ export default {
       return this.cart.length === 0
     },
     itemsAmount () {
-      let result = []
+      if (!this.emptyCart) {
+        let result = []
 
-      this.cart.forEach(item => {
-        result.push(item.quantity)
-      })
+        this.cart.forEach(item => {
+          result.push(item.quantity)
+        })
 
-      return result.reduce((sum, el) => {
-        return sum + el
-      })
+        return result.reduce((sum, el) => {
+          return sum + el
+        })
+      } else {
+       return 0
+      }
     }
   },
   watch: {
