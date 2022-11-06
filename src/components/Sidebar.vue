@@ -106,8 +106,6 @@ export default {
 
 .sidebar {
   position: fixed;
-  //left: -300px;
-  //left: 300px;
   left: 0;
   top: 74px;
   height: 100%;
@@ -145,8 +143,8 @@ export default {
       margin-bottom: 10px;
 
       img {
-        width: 28px;
-        height: 28px;
+        width: 20px;
+        height: 20px;
         cursor: pointer;
       }
     }

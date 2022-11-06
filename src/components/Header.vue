@@ -194,9 +194,10 @@ export default {
 
   .header__logo {
     grid-column: logoStart / logoEnd;
+    width: 150px;
 
     img {
-      width: 150px;
+      width: 100%;
       height: 70px;
       cursor: pointer;
     }
@@ -319,16 +320,10 @@ export default {
 @media (max-width: 991px) {
   .header {
     position: relative;
+
+    display: flex;
     justify-content: space-between;
-
-    grid-template-columns:
-    [menuStart] minmax(20px, 40px) [menuEnd] 10px
-    [logoStart] minmax(130px, 160px) [logoEnd] 20px
-    [langStart] minmax(20px, 40px) [langEnd] 10px;
-
-    .header__logo {
-      width: 120px;
-    }
+    align-items: center;
 
     .header__menu {
       display: none;
@@ -344,13 +339,9 @@ export default {
 
 @media (max-width: 512px) {
   .header {
-    grid-template-columns:
-    [menuStart] minmax(20px, 30px) [menuEnd] 10px
-    [logoStart] minmax(20px, 30px) [logoEnd] 40px
-    [langStart] minmax(20px, 40px) [langEnd] 10px;
 
     .header__logo {
-      width: 100px;
+      width: 120px;
     }
     .header__authorization {
       .header__login {

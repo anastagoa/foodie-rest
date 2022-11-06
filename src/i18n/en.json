@@ -45,7 +45,8 @@
     "order": "Order",
     "name": "Name",
     "email": "Email",
-    "telephone": "Telephone number"
+    "telephone": "Telephone number",
+    "describe": "Your comments to the order (optional)"
   },
   "cart": {
     "empty": "Your cart is empty :(",
@@ -53,7 +54,9 @@
   },
   "errors": {
     "notFound": "Page not found",
-    "home": "Go to the home page"
+    "home": "Go to the home page",
+    "emailError": "Email is incorrect",
+    "phoneError": "Phone is incorrect"
   },
   "contacts": {
     "callCenter": "Delivery service call center",

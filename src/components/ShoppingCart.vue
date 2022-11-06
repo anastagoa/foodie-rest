@@ -40,7 +40,6 @@
               id="name"
               v-model="name"
               type="text"
-              required
             >
           </div>
           <div class="shopping-cart__order-block">
@@ -53,24 +52,36 @@
             <input
               id="email"
               v-model="email"
+              :class="[emailError ? 'error': '']"
               type="email"
-              required
             >
+            <div
+              v-if="emailError"
+              class="shopping-cart__error"
+            >
+              {{ $t('errors.emailError') }}
+            </div>
           </div>
           <div class="shopping-cart__order-block">
             <label
-              for="telephone"
+              for="phone"
               class="shopping-cart__order-block-label"
             >
               {{ $t('order.telephone') }}
             </label>
             <input
-              id="telephone"
-              v-model="telephone"
+              id="phone"
+              v-model="phone"
+              :class="[phoneError ? 'error': '']"
               type="tel"
-              placeholder="+7 ___ ___-____"
-              required
+              pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]/"
             >
+            <div
+              v-if="phoneError"
+              class="shopping-cart__error"
+            >
+              {{ $t('errors.phoneError') }}
+            </div>
           </div>
           <div class="shopping-cart__order-block">
             <label
@@ -83,7 +94,6 @@
               id="address"
               v-model="address"
               type="text"
-              required
             >
           </div>
           <div class="shopping-cart__order-block">
@@ -97,12 +107,13 @@
               id="comment"
               v-model="comment"
               type="text"
+              :placeholder="`${$t('order.describe')}`"
             >
           </div>
           <CustomButton
             :label="`${$t('order.order')}`"
             class="order-btn"
-            @click="onSubmit"
+            @click="validateForm"
           />
         </form>
       </div>
@@ -136,9 +147,11 @@ export default {
     return {
       name: null,
       email: null,
-      telephone: null,
+      phone: null,
       address: null,
-      comment: null
+      comment: null,
+      emailError: false,
+      phoneError: false
     }
   },
   computed: {
@@ -163,22 +176,6 @@ export default {
     }
   },
   methods: {
-    onSubmit() {
-      let personalData = {
-        name: this.name,
-        email: this.email,
-        telephone: this.telephone,
-        address: this.address,
-        comment: this.comment
-      }
-      this.name = null
-      this.email = null
-      this.telephone = null
-      this.address = null
-      this.comment = null
-
-      console.log(personalData)
-    },
     deleteFromCart(item, index) {
       let params = {
         item: item,
@@ -200,9 +197,60 @@ export default {
         index: index
       }
       this.$store.dispatch('cart/decreaseCartItem', params)
-    }
+    },
+    validateForm() {
+      let formInputs = document.getElementsByTagName('input')
+
+      Array.from(formInputs).forEach(function (input) {
+        if (input.value === '' && input.id !== 'comment') {
+          input.classList.add('error');
+        } else {
+          input.classList.remove('error');
+        }
+      });
+
+      this.emailError = !this.validateEmail(this.email);
+
+      this.phoneError = !this.validatePhone(this.phone);
+
+      this.onSubmit()
+    },
+    validateEmail(email) {
+      let re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      return re.test(String(email).toLowerCase());
+    },
+    validatePhone(phone) {
+      let re = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+      return re.test(String(phone));
+    },
+    onSubmit() {
+      // let params = {
+      //   name: this.name,
+      //   email: this.email,
+      //   phone: this.phone,
+      //   address: this.address,
+      //   comment: this.comment
+      // }
+
+      // return new Promise((resolve, reject) => {
+      //   this.$store.dispatch('order/sendData', params).then(() => {
+      //     resolve()
+      //   })
+      //     .catch((err) => {
+      //       this.errors = err.response.data
+      //       reject()
+      //     })
+      // })
+
+      // this.name = null
+      // this.email = null
+      // this.phone = null
+      // this.address = null
+      // this.comment = null
+    },
   },
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -273,7 +321,7 @@ export default {
       input {
         width: 100%;
         height: 48px;
-        padding: 8px 13px 7px;
+        padding: 8px 13px 7px 13px;
 
         border: 1px solid #ececec;
         border-radius: 3px;
@@ -281,6 +329,10 @@ export default {
         background-color: #fafafa;
         color: #383838;
         font-size: 14px;
+
+        &.error {
+          border: 1px solid red;
+        }
 
         &#comment {
           height: 100px;
@@ -293,6 +345,10 @@ export default {
           border-color: rgba(136, 136, 136, 0.5);
           -webkit-box-shadow: 0 0 0 30px white inset;
           transition: all .4s ease;
+
+          &.error {
+            border: 1px solid red;
+          }
         }
 
         &:-webkit-autofill {
@@ -305,6 +361,12 @@ export default {
             border-color: rgba(136, 136, 136, 0.5);
           }
         }
+      }
+
+      .shopping-cart__error {
+        margin-top: 5px;
+        font-size: 10px;
+        color: red;
       }
     }
 
