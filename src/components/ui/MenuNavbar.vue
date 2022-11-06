@@ -112,6 +112,8 @@ export default {
     padding: 0;
     .menu-navbar {
       border-radius: 0;
+      width: 105%;
+      margin-right: -25px;
       .menu-navbar__list {
         display: none;
       }

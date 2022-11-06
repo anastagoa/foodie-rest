@@ -103,6 +103,7 @@ export default {
       justify-content: center;
       align-items: center;
       gap: 15px;
+      text-align: center;
 
       width: 100%;
       padding: 40px;
@@ -179,6 +180,25 @@ export default {
         font-weight: 400;
         cursor: pointer
       }
+    }
+  }
+}
+
+@media(max-width: 991px) {
+  .contacts-page {
+    padding: 60px 0;
+    .contacts-page__items-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+  }
+}
+
+@media(max-width: 512px) {
+  .contacts-page {
+    .contacts-page__items-wrapper {
+      grid-template-columns: 100%;
+      gap: 10px;
     }
   }
 }

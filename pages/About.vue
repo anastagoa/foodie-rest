@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <div class="about-page__parallax" />
+    <div class="about-page__attachment" />
 
     <Info />
   </div>
@@ -62,8 +62,9 @@ export default {
 .about-page {
   .about-page__content {
     position: relative;
-    padding: 120px;
-    margin-bottom: 100px;
+    margin: 0 auto 100px auto;
+    padding: 120px 0;
+    max-width: 1200px;
 
     .about-page__info {
       padding: 56px 110px 48px 48px;
@@ -112,7 +113,7 @@ export default {
       position: absolute;
 
       bottom: -20px;
-      right: 120px;
+      right: 40px;
       display: flex;
       gap: 30px;
 
@@ -142,7 +143,7 @@ export default {
     }
   }
 
-  .about-page__parallax {
+  .about-page__attachment {
     width: 100%;
     height: 450px;
     margin-bottom: 70px;
@@ -152,6 +153,101 @@ export default {
     background-position: 100% 100%;
     background-size: cover;
     background-attachment: fixed;
+  }
+}
+
+
+@media(max-width: 1199px) {
+  .about-page {
+    .about-page__content {
+      padding: 120px 0 0 0;
+      max-width: 950px;
+
+      .about-page__info {
+        padding: 64px 80px 48px 32px;
+        width: 470px;
+      }
+
+      .about-page__img-wrapper {
+        top: calc(50% - 120px);
+        right: 10px;
+        gap: 15px;
+
+        .about-page__img {
+          width: 245px;
+          height: 370px;
+        }
+      }
+    }
+
+    .about-page__attachment {
+      height: 400px;
+    }
+  }
+}
+
+@media(max-width: 991px) {
+  .about-page {
+    .about-page__content {
+      margin: 0 auto 50px auto;
+      padding: 240px 0 0 0;
+      max-width: 640px;
+
+      .about-page__info {
+        padding: 36px 56px 20px 36px;
+        margin: 0 auto;
+      }
+
+      .about-page__img-wrapper {
+        top: 50px;
+        right: calc(50% - 180px);
+        gap: 15px;
+
+        .about-page__img {
+          width: 170px;
+          height: 204px;
+        }
+      }
+    }
+
+    .about-page__attachment {
+      height: 350px;
+    }
+  }
+}
+
+@media(max-width: 512px) {
+  .about-page {
+    .about-page__content {
+      max-width: 100%;
+      width: 100%;
+
+      .about-page__info {
+        padding: 36px 56px 20px 36px;
+        margin: 0 auto;
+        width: 100%;
+
+        .about-page__info-title {
+          margin-bottom: 25px;
+          font-size: 23px;
+        }
+      }
+
+      .about-page__img-wrapper {
+        top: 50px;
+        right: calc(50% - 145px);
+        gap: 10px;
+
+        .about-page__img {
+          width: 140px;
+          height: 204px;
+        }
+      }
+    }
+
+    .about-page__attachment {
+      height: 300px;
+    }
   }
 }
 </style>

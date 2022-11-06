@@ -336,7 +336,7 @@ export default {
     .header__cart {
       position: fixed;
       right: 20px;
-      top: 100px;
+      top: 150px;
     }
   }
 }
