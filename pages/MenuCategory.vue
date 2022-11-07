@@ -23,10 +23,14 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+// import {mapGetters} from "vuex";
 import MenuNavbar from '@/components/ui/MenuNavbar'
 import DishBox from '@/components/ui/DishBox'
 import { useMeta } from 'vue-meta'
+
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { useStore } from 'vuex'
 
 export default {
   name: 'DishCategory',
@@ -35,27 +39,56 @@ export default {
     useMeta({
       title: 'Menu'
     })
-  },
-  computed: {
-    ...mapGetters({
-      cart: 'cart/getCart',
-      categories: 'categories/getAll'
-    }),
-    currentPathId() {
-      return this.$route.params.id
-    },
-    category() {
-      return this.categories.find(item => item.id === this.currentPathId)
+
+    const store = useStore()
+    const route = useRoute()
+    const currentPathId = computed(() => { return route.params.id })
+    const cart = computed(() => { return store.state.cart })
+
+    const category = computed(() => {
+      return store.state.categories.all.find(item => item.id === currentPathId.value)
+    })
+
+    const loadCategories = () => {
+      store.dispatch('categories/loadAll')
+    }
+    loadCategories()
+
+    const addToCart = (dish) => store.dispatch('cart/addToCart', dish)
+
+    return {
+      currentPathId,
+      category,
+      cart,
+      loadCategories,
+      addToCart
     }
   },
-   created() {
-    this.$store.dispatch('categories/loadAll')
-  },
-  methods: {
-    addToCart(dish) {
-      this.$store.dispatch('cart/addToCart', dish)
-    },
-  },
+  // computed: {
+  //   ...mapGetters({
+  //     // cart: 'cart/getCart',
+  //     categories: 'categories/getAll'
+  //   }),
+  //   category() {
+  //     return this.categories.find(item => item.id === this.currentPathId)
+  //   }
+  // },
+
+    // currentPathId() {
+    //   return this.$route.params.id
+    // },
+    // category() {
+    //   return this.categories.find(item => item.id === this.currentPathId)
+    // }
+  // },
+  //  created() {
+  //   this.$store.dispatch('categories/loadAll')
+  // },
+  // methods: {
+  //   addToCart(dish) {
+  //     this.$store.dispatch('cart/addToCart', dish)
+  //   },
+  // },
 }
 
 </script>

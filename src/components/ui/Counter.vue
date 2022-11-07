@@ -15,6 +15,9 @@
 </template>
 
 <script>
+
+import { ref } from 'vue'
+
 export default {
   name: 'Counter',
   props: {
@@ -23,25 +26,48 @@ export default {
       required: true,
     }
   },
-  data() {
+  emits: ['increaseNum', 'decreaseNum'],
+  setup(props, { emit }) {
+    const number = ref(props.quantity)
+
+    const increaseNum = () => {
+      number.value++
+      emit('increaseNum', number.value)
+    }
+    const decreaseNum = () => {
+      if (number.value > 1) {
+        number.value--
+      } else {
+        number.value = 1
+      }
+      emit('decreaseNum', number.value)
+    }
+
     return {
-      number: this.quantity
+      number,
+      increaseNum,
+      decreaseNum
     }
   },
-  methods: {
-    increaseNum () {
-      this.number++
-      this.$emit('increaseNum', this.number)
-    },
-    decreaseNum () {
-      if (this.number > 1) {
-        this.number--
-      } else {
-        this.number = 1
-      }
-      this.$emit('decreaseNum', this.number)
-    },
-  },
+  // data() {
+  //   return {
+  //     number: this.quantity
+  //   }
+  // },
+  // methods: {
+    // increaseNum () {
+    //   this.number++
+    //   this.$emit('increaseNum', this.number)
+    // },
+    // decreaseNum () {
+    //   if (this.number > 1) {
+    //     this.number--
+    //   } else {
+    //     this.number = 1
+    //   }
+    //   this.$emit('decreaseNum', this.number)
+    // },
+  // },
 }
 </script>
 

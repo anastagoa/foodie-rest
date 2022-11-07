@@ -29,11 +29,6 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      langSwitcherIsOpened: false,
-    }
-  },
   methods: {
     switchLocale(lang) {
       this.$emit('setLang', lang)

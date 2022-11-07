@@ -79,26 +79,54 @@
 import menuItems from '@/mixins/menuItems.js'
 import menuLinks from '@/mixins/menuLinks'
 
+import { computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+
 export default {
   name: 'Sidebar',
   mixins: [ menuItems, menuLinks ],
-  computed: {
-    currentPath() {
-      return this.$route.path
+  emits: ['increaseNum'],
+  setup(_, { emit }) {
+    const router = useRouter()
+    const route = useRoute()
+
+    const currentPath = computed(() => { return route.path })
+
+    const closeSidebar = () => {
+      emit('closeSidebar')
+    }
+    const selectCategory = (id) => {
+      router.replace('/menu/' + `${id}`)
+      emit('closeSidebar')
+    }
+    const activeItem = (id) => {
+      return currentPath.value === '/menu/' + `${id}`
+    }
+
+    return {
+      currentPath,
+      closeSidebar,
+      selectCategory,
+      activeItem
     }
   },
-  methods: {
-    activeItem(id) {
-      return this.currentPath === '/menu/' + `${id}`
-    },
-    selectCategory (id) {
-      this.$router.replace('/menu/' + `${id}`)
-      this.$emit('closeSidebar')
-    },
-    closeSidebar() {
-      this.$emit('closeSidebar')
-    },
-  }
+  // computed: {
+  //   currentPath() {
+  //     return this.$route.path
+  //   }
+  // },
+  // methods: {
+    // activeItem(id) {
+    //   return this.currentPath === '/menu/' + `${id}`
+    // },
+    // selectCategory (id) {
+    //   this.$router.replace('/menu/' + `${id}`)
+    //   this.$emit('closeSidebar')
+    // },
+    // closeSidebar() {
+    //   this.$emit('closeSidebar')
+    // },
+  // }
 }
 </script>
 

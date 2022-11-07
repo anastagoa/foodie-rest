@@ -46,7 +46,7 @@ export default {
       product: {}
     }
   },
-  async created () {
+  created () {
     this.product = Object.assign({}, this.item);
   },
   methods: {

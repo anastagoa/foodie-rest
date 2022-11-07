@@ -23,7 +23,6 @@ import {mapGetters} from "vuex";
 import PromoBox from '@/components/ui/PromoBox'
 import { useMeta } from 'vue-meta'
 
-
 export default {
   name: 'Promo',
   components: { PromoBox },

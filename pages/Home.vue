@@ -49,17 +49,11 @@ import {mapGetters} from "vuex";
 
 import MenuNavbar from '@/components/ui/MenuNavbar'
 import Info from '@/components/ui/Info'
-import { useMeta } from 'vue-meta'
 import PromoSwiperRow from '@/components/PromoSwiperRow'
 
 export default {
   name: "Home",
   components: { PromoSwiperRow, MenuNavbar, Info },
-  setup() {
-    useMeta({
-      title: 'Foodie'
-    })
-  },
   computed: {
     ...mapGetters({
       categories: 'categories/getAll',
