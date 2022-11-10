@@ -56,12 +56,8 @@ export default {
   components: { PromoSwiperRow, MenuNavbar, Info },
   computed: {
     ...mapGetters({
-      categories: 'categories/getAll',
       promos: 'promos/getAll'
     }),
-  },
-  created () {
-    this.$store.dispatch('categories/loadAll')
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);

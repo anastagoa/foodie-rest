@@ -23,7 +23,7 @@
 </template>
 
 <script>
-// import {mapGetters} from "vuex";
+
 import MenuNavbar from '@/components/ui/MenuNavbar'
 import DishBox from '@/components/ui/DishBox'
 import { useMeta } from 'vue-meta'

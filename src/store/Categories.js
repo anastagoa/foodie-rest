@@ -12,7 +12,7 @@ const categories = {
   },
   actions: {
     loadAll({commit}) {
-      return axios('http://localhost:3000/categories', {
+      return axios('/api/categories', {
         method: "GET"
       })
         .then((payload => {

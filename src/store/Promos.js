@@ -11,9 +11,9 @@ const promos = {
     }
   },
   actions: {
-    loadAll({commit}) {
-      return axios('http://localhost:3000/promos', {
-        method: "GET"
+    loadAll({ commit }) {
+      return axios('/api/promos', {
+        method: 'GET'
       })
         .then((payload => {
           commit('SET_ALL', payload.data)
