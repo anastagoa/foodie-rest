@@ -108,7 +108,7 @@ export default {
     .popup__box {
       margin: 65px auto 0 auto;
       width: 45%;
-      height: 100%;
+      //height: 100%;
       border-radius: 0;
       overflow-y: scroll;
     }

@@ -2,7 +2,9 @@
   <div class="menu-category">
     <MenuNavbar />
 
-    <div v-if="category">
+    <Spinner v-if="!category"/>
+
+    <div v-else>
       <div class="menu-category__title">
         {{ category.title }}
       </div>
@@ -26,6 +28,7 @@
 
 import MenuNavbar from '@/components/ui/MenuNavbar'
 import DishBox from '@/components/ui/DishBox'
+import Spinner from '@/components/ui/Spinner'
 import { useMeta } from 'vue-meta'
 
 import { computed } from 'vue'
@@ -34,7 +37,7 @@ import { useStore } from 'vuex'
 
 export default {
   name: 'DishCategory',
-  components: { MenuNavbar, DishBox },
+  components: { MenuNavbar, DishBox, Spinner },
   setup() {
     useMeta({
       title: 'Menu'

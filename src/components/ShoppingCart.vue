@@ -253,10 +253,10 @@ export default {
 
 <style lang="scss" scoped>
 .shopping-cart {
-
   .shopping-cart__content {
     margin-bottom: 15px;
     border-top: 1px solid rgba(183, 182, 182, 0.69);
+    height: 100%;
 
     &.empty {
       border: none;

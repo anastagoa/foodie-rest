@@ -41,6 +41,7 @@
         <li
           class="sidebar__item"
           :class="[link.path === currentPath ? 'sidebar__item_active' : '']"
+          @click="closeSidebar"
         >
           {{ $t(link.title) }}
         </li>
