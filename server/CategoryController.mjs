@@ -1,4 +1,4 @@
-import Category from './Category.js'
+import Category from './Category.mjs'
 
 class CategoryController {
   async create (req, res) {

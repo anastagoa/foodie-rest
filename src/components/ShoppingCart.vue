@@ -74,7 +74,6 @@
               v-model="phone"
               :class="[phoneError ? 'error': '']"
               type="tel"
-              pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]/"
             >
             <div
               v-if="phoneError"
@@ -109,7 +108,7 @@
           <CustomButton
             :label="`${$t('order.order')}`"
             class="order-btn"
-            @click="validateForm"
+            @click="checkForm"
           />
         </form>
       </div>
@@ -141,13 +140,14 @@ export default {
   components: { CustomButton, DishBoxCart },
   data() {
     return {
-      name: null,
-      email: null,
-      phone: null,
-      address: null,
-      comment: null,
+      name: '',
+      email: '',
+      phone: '',
+      address: '',
+      comment: '',
       emailError: false,
-      phoneError: false
+      phoneError: false,
+      errors: []
     }
   },
   computed: {
@@ -194,14 +194,16 @@ export default {
       }
       this.$store.dispatch('cart/decreaseCartItem', params)
     },
-    validateForm() {
+    checkForm() {
+      this.errors = []
       let formInputs = document.getElementsByTagName('input')
 
       Array.from(formInputs).forEach(input => {
         if (input.value === '') {
-          input.classList.add('error');
+          input.classList.add('errorInput');
+          this.errors.push('Missed data')
         } else {
-          input.classList.remove('error');
+          input.classList.remove('errorInput');
         }
       });
 
@@ -209,15 +211,15 @@ export default {
 
       this.phoneError = !this.validatePhone(this.phone);
 
-      this.onSubmit()
+      if(!this.errors.length && !this.emailError && !this.phoneError) this.onSubmit()
     },
     validateEmail(email) {
-      let re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      return re.test(String(email).toLowerCase());
+      let exp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      return exp.test(String(email).toLowerCase());
     },
     validatePhone(phone) {
-      let re = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
-      return re.test(String(phone));
+      let exp = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+      return exp.test(String(phone));
     },
     onSubmit() {
       let params = {
@@ -225,26 +227,18 @@ export default {
         email: this.email,
         phone: this.phone,
         address: this.address,
-        comment: this.comment
+        comment: this.comment,
+        dishes: JSON.stringify(this.cart)
       }
 
-      this.$store.dispatch('cart/makeAnOrder', params)
-
-      // return new Promise((resolve, reject) => {
-      //   this.$store.dispatch('cart/makeAnOrder', params).then(() => {
-      //     resolve()
-      //   })
-      //     .catch((err) => {
-      //       this.errors = err.response.data
-      //       reject()
-      //     })
-      // })
-
-      // this.name = null
-      // this.email = null
-      // this.phone = null
-      // this.address = null
-      // this.comment = null
+      this.$store.dispatch('orders/makeAnOrder', params).then(() => {
+        this.name = ''
+        this.email = ''
+        this.phone = ''
+        this.address = ''
+        this.comment = ''
+      })
+      this.$store.dispatch('cart/deleteCart')
     },
   },
 }
@@ -328,10 +322,6 @@ export default {
         color: #383838;
         font-size: 14px;
 
-        &.error {
-          border: 1px solid red;
-        }
-
         &:hover,
         &:active,
         &:focus {
@@ -340,9 +330,19 @@ export default {
           -webkit-box-shadow: 0 0 0 30px white inset;
           transition: all .4s ease;
 
-          &.error {
+          &.error,
+          &.errorInput {
             border: 1px solid red;
           }
+        }
+
+        &.error,
+        &.errorInput {
+          border: 1px solid red;
+        }
+
+        &:invalid {
+          border: 1px solid red;
         }
 
         &:-webkit-autofill {

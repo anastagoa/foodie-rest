@@ -1,4 +1,4 @@
-import Promo from './Promo.js'
+import Promo from './Promo.mjs'
 
 class PromoController {
   async create (req, res) {

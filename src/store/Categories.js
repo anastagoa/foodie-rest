@@ -12,9 +12,7 @@ const categories = {
   },
   actions: {
     loadAll({commit}) {
-      return axios('/api/categories', {
-        method: "GET"
-      })
+      axios.get('/api/categories')
         .then((payload => {
           commit('SET_ALL', payload.data)
           return payload.data

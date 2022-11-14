@@ -3,6 +3,7 @@ import lang from '@/store/Lang'
 import categories from '@/store/Categories'
 import promos from '@/store/Promos'
 import cart from '@/store/Cart'
+import orders from '@/store/Orders'
 
 export default createStore({
   state: {
@@ -17,6 +18,7 @@ export default createStore({
     lang,
     categories,
     promos,
-    cart
+    cart,
+    orders
   }
 })

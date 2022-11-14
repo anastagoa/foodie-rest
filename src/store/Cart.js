@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 let cartItems = window.localStorage.getItem('cartItems');
 let cartCount = window.localStorage.getItem('cartCount');
 
@@ -51,6 +49,10 @@ const cart = {
     SAVE_CART(state) {
       window.localStorage.setItem('cartItems', JSON.stringify(state.cart));
       window.localStorage.setItem('cartCount', JSON.stringify(state.total));
+    },
+    CLEAR_CART(state) {
+      state.cart = []
+      state.total = 0
     }
   },
   actions: {
@@ -70,39 +72,10 @@ const cart = {
       commit('DECREASE', payload)
       commit('SAVE_CART')
     },
-    makeAnOrder(payload) {
-      return axios('http://localhost:3000/orders', {
-        method: 'POST',
-        payload
-        // body: payload
-
-        // name: payload.name,
-        // email: payload.email,
-        // phone: payload.phone,
-        // address: payload.address,
-        // comment: payload.comment,
-        // cart: JSON.stringify(this.state.cart)
-      })
-        .then((payload => {
-          // commit('SET_ORDER', payload.data)
-          console.log(payload)
-          return payload.data
-        })).catch(error => {
-          return error
-        })
-    },
-
-    // async makeAnOrder () {
-    //   return new Promise((resolve, reject) => {
-    //     API.post('players')
-    //     }).then(response => {
-    //       resolve(response)
-    //     }).catch(error => {
-    //       reject(error)
-    //     })
-    //   })
-    // }
-
+    deleteCart({ commit }) {
+      commit('CLEAR_CART')
+      commit('SAVE_CART')
+    }
   },
   getters: {
     getCart(state) {

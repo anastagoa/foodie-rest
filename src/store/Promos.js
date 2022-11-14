@@ -12,9 +12,7 @@ const promos = {
   },
   actions: {
     loadAll({ commit }) {
-      return axios('/api/promos', {
-        method: 'GET'
-      })
+      axios.get('/api/promos')
         .then((payload => {
           commit('SET_ALL', payload.data)
           return payload.data
