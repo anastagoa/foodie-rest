@@ -8,6 +8,7 @@ import { createI18n } from 'vue-i18n'
 import { languages } from '@/i18n'
 import { defaultLocale } from '@/i18n'
 import { createMetaManager } from 'vue-meta'
+import vClickOutside from 'v-click-outside'
 
 import axios from 'axios' //delete
 
@@ -62,6 +63,7 @@ createApp(App)
   .use(router)
   .use(i18n)
   .use(createMetaManager())
+  .use(vClickOutside)
   // .use(metaPlugin)
 // })
   .mount('#app')

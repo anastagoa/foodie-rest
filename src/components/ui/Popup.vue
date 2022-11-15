@@ -1,6 +1,9 @@
 <template>
   <div class="popup">
-    <div class="popup__box">
+    <div
+      ref="el"
+      class="popup__box"
+    >
       <div class="popup__top-block">
         <div class="popup__top-title">
           {{ title }}
@@ -25,6 +28,9 @@
 
 <script>
 
+import { ref } from 'vue'
+import { onClickOutside } from '@vueuse/core'
+
 export default {
   props: {
     title: {
@@ -33,11 +39,22 @@ export default {
       default: null
     },
   },
-  methods: {
-    closePopup() {
-      this.$emit('closePopup')
-    },
-  }
+  emits: ['closePopup'],
+  setup (_, { emit }) {
+
+    const el = ref()
+
+    const closePopup = () => {
+      emit('closePopup')
+    }
+
+    onClickOutside(el, closePopup)
+
+    return {
+      el,
+      closePopup
+    }
+  },
 }
 </script>
 
@@ -108,7 +125,6 @@ export default {
     .popup__box {
       margin: 65px auto 0 auto;
       width: 45%;
-      //height: 100%;
       border-radius: 0;
       overflow-y: scroll;
     }

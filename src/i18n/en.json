@@ -38,15 +38,17 @@
     "yourOrder": "Your order",
     "total": "Total",
     "contactInfo": "Contact info",
-    "haveAccount": "I have an account",
-    "newUser": "I'm a new user",
     "address": "Address",
     "comment": "Comment",
     "order": "Order",
     "name": "Name",
     "email": "Email",
     "telephone": "Telephone number",
-    "describe": "Your comments to the order (optional)"
+    "describe": "Your comments to the order (optional)",
+    "thanks": "Thank you for your order!",
+    "contact": "If necessary, our specialist will contact you",
+    "shippingCost": "Shipping cost is 350₽, free shipping on orders of 3000₽ or more",
+    "shippingCostTotal": "Total amount including shipping cost:"
   },
   "cart": {
     "empty": "Your cart is empty :(",

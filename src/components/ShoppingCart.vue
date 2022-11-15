@@ -24,6 +24,16 @@
           <span> ₽ </span>
         </div>
 
+        <div class="shopping-cart__shipping-cost">
+          {{ $t('order.shippingCost') }}
+        </div>
+
+        <div class="shopping-cart__shipping-cost-total">
+          {{ $t('order.shippingCostTotal') }}
+          {{ totalCostDelivery }}
+          <span> ₽ </span>
+        </div>
+
         <form class="shopping-cart__form">
           <div class="shopping-cart__contacts-title">
             {{ $t('order.contactInfo') }}
@@ -169,6 +179,13 @@ export default {
       })
 
       return result
+    },
+    totalCostDelivery() {
+      if(this.totalCost >= 3000) {
+        return this.totalCost
+      } else {
+        return this.totalCost + 350
+      }
     }
   },
   methods: {
@@ -228,8 +245,11 @@ export default {
         phone: this.phone,
         address: this.address,
         comment: this.comment,
+        total: this.totalCostDelivery,
         dishes: JSON.stringify(this.cart)
       }
+
+      this.closeCartPopup()
 
       this.$store.dispatch('orders/makeAnOrder', params).then(() => {
         this.name = ''
@@ -240,6 +260,9 @@ export default {
       })
       this.$store.dispatch('cart/deleteCart')
     },
+    closeCartPopup() {
+      this.$emit('closeCartPopup')
+    },
   },
 }
 
@@ -249,7 +272,7 @@ export default {
 .shopping-cart {
   .shopping-cart__content {
     margin-bottom: 15px;
-    border-top: 1px solid rgba(183, 182, 182, 0.69);
+    border-top: 1px solid rgba(183, 182, 182, 0.49);
     height: 100%;
 
     &.empty {
@@ -262,13 +285,13 @@ export default {
     }
   }
   .shopping-cart__total {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     padding-top: 15px;
-    border-top: 1px solid rgba(183, 182, 182, 0.69);
+    border-top: 1px solid rgba(183, 182, 182, 0.49);
 
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 600;
-    text-align: end;
+    opacity: 0.8;
   }
 
   .shopping-cart_empty {
@@ -286,6 +309,22 @@ export default {
       font-weight: 400;
       color: rgba(135, 135, 135, 0.7);
     }
+  }
+
+  .shopping-cart__shipping-cost {
+    margin-bottom: 5px;
+
+    font-size: 15px;
+    font-weight: 400;
+    color: #5d5d5d;
+    opacity: 0.6;
+  }
+
+  .shopping-cart__shipping-cost-total {
+    margin-bottom: 40px;
+
+    font-size: 17px;
+    font-weight: 600;
   }
 
   .shopping-cart__form {

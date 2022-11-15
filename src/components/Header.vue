@@ -74,7 +74,14 @@
       :title="`${$t('order.yourOrder')}:`"
       @closePopup="closeCartPopup"
     >
-      <ShoppingCart />
+      <ShoppingCart @closeCartPopup="closeSentCartPopup" />
+    </Popup>
+
+    <Popup
+      v-if="sentOrder"
+      @closePopup="closeSentPopup"
+    >
+      <SentOrder/>
     </Popup>
   </header>
 </template>
@@ -88,16 +95,18 @@ import Popup from '@/components/ui/Popup'
 import Sidebar from '@/components/Sidebar'
 import menuLinks from '@/mixins/menuLinks'
 import ShoppingCart from '@/components/ShoppingCart'
+import SentOrder from '@/components/ui/SentOrder'
 
 export default {
   name: 'Header',
-  components: { ShoppingCart, Sidebar, LangSwitcher, Popup },
+  components: { SentOrder, ShoppingCart, Sidebar, LangSwitcher, Popup },
   mixins: [ menuLinks ],
   data () {
     return {
       openedSidebar: false,
       cartPopup: false,
-      showTotal: false
+      showTotal: false,
+      sentOrder: false
     }
   },
   computed: {
@@ -155,6 +164,16 @@ export default {
     setLang(lang) {
       this.$root.$i18n.locale = lang
       this.$store.dispatch('lang/setCurrent', lang)
+    },
+    openSentPopup() {
+      this.sentOrder = true
+    },
+    closeSentCartPopup() {
+      this.cartPopup = false
+      this.openSentPopup()
+    },
+    closeSentPopup() {
+      this.sentOrder = false
     }
   },
 }

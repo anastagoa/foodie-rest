@@ -90,7 +90,7 @@ export default {
     grid-template-areas: 'title counter';
     gap: 20px;
 
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
     margin: 20px 0;
 
     .dish-mini-box__title {

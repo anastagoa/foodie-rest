@@ -36,13 +36,13 @@ router.delete('/promos/:id', PromoController.delete)
 
 router.post('/orders', OrderController.create)
 router.get('/orders', OrderController.getAll)
-// router.get('/orders/:id', OrderController.getOne)
+router.get('/orders/:id', OrderController.getOne)
 router.delete('/orders/:id', OrderController.delete)
 
 async function startApp() {
   try {
     await mongoose.connect(DB_URL)
-    app.listen(PORT, () => console.log('port5'))
+    app.listen(PORT)
   } catch (e) {
     console.log(e)
   }
