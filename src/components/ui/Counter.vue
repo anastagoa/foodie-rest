@@ -49,25 +49,6 @@ export default {
       decreaseNum
     }
   },
-  // data() {
-  //   return {
-  //     number: this.quantity
-  //   }
-  // },
-  // methods: {
-    // increaseNum () {
-    //   this.number++
-    //   this.$emit('increaseNum', this.number)
-    // },
-    // decreaseNum () {
-    //   if (this.number > 1) {
-    //     this.number--
-    //   } else {
-    //     this.number = 1
-    //   }
-    //   this.$emit('decreaseNum', this.number)
-    // },
-  // },
 }
 </script>
 

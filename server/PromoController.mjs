@@ -3,8 +3,8 @@ import Promo from './Promo.mjs'
 class PromoController {
   async create (req, res) {
     try {
-      const { id, title, description  } = req.body
-      const promo = await Promo.create({ id, title, description })
+      const { id, title, description, lang } = req.body
+      const promo = await Promo.create({ id, title, description, lang })
       res.json(promo)
     } catch (e) {
       res.status(500).json(e)

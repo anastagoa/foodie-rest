@@ -4,6 +4,7 @@ const Category = new mongoose.Schema({
   title: {type: String, required: true},
   id: {type: String, required: true},
   dishes: {type: Array, required: true},
+  lang: {type: String, required: true}
 })
 
 export default mongoose.model('Category', Category)

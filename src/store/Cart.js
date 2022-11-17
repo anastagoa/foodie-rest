@@ -13,7 +13,7 @@ const cart = {
         let found = false
 
         state.cart.map(item => {
-          if (payload.title === item.title) {
+          if (payload.id === item.id) {
             found = true
             item.quantity++
             state.total += payload.price

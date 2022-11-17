@@ -71,20 +71,6 @@ export default {
       modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
     };
   },
-  // computed: {
-  //   currentPath() {
-  //     return this.$route.path
-  //   }
-  // },
-  // methods: {
-    // activeItem (id) {
-    //   return this.currentPath === '/menu/' + `${id}`
-    // },
-    // selectCategory (id) {
-    //   this.$router.replace('/menu/' + `${id}`)
-    //   this.$emit('closeSidebar')
-    // },
-  // }
 }
 </script>
 
@@ -134,8 +120,6 @@ export default {
     padding: 0;
     .menu-navbar {
       border-radius: 0;
-      width: 105%;
-      margin-right: -25px;
       .menu-navbar__list {
         display: none;
       }

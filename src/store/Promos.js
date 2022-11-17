@@ -15,7 +15,6 @@ const promos = {
       axios.get('/api/promos')
         .then((payload => {
           commit('SET_ALL', payload.data)
-          return payload.data
         })).catch(error => {
           return error
         })

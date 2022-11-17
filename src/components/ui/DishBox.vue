@@ -84,36 +84,7 @@ export default {
       closePopup,
       addToCart
     }
-  },
-  // data() {
-  //   return {
-      // openedPopup: false,
-      // item: {}
-  //   }
-  // },
-  // watch: {
-  //   dish(newValue) {
-  //     this.item = Object.assign({}, newValue)
-  //   }
-  // },
-  // mounted () {
-  //   this.item = Object.assign({}, this.dish);
-  // },
-  // methods: {
-    // addToCart() {
-    //   this.$emit('addToCart', this.item)
-    // },
-    // openPopup(event) {
-    //   let addBtn = document.querySelectorAll('.add-button')
-    //
-    //   this.openedPopup = !Array.from(addBtn).find(btn => {
-    //    return btn === event.target
-    //   })
-    // },
-    // closePopup() {
-    //   this.openedPopup = false
-    // },
-  // },
+  }
 }
 </script>
 

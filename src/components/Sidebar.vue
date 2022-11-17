@@ -86,7 +86,7 @@ import { useRouter, useRoute } from 'vue-router'
 export default {
   name: 'Sidebar',
   mixins: [ menuItems, menuLinks ],
-  emits: ['increaseNum'],
+  emits: ['increaseNum', 'closeSidebar'],
   setup(_, { emit }) {
     const router = useRouter()
     const route = useRoute()
@@ -110,24 +110,7 @@ export default {
       selectCategory,
       activeItem
     }
-  },
-  // computed: {
-  //   currentPath() {
-  //     return this.$route.path
-  //   }
-  // },
-  // methods: {
-    // activeItem(id) {
-    //   return this.currentPath === '/menu/' + `${id}`
-    // },
-    // selectCategory (id) {
-    //   this.$router.replace('/menu/' + `${id}`)
-    //   this.$emit('closeSidebar')
-    // },
-    // closeSidebar() {
-    //   this.$emit('closeSidebar')
-    // },
-  // }
+  }
 }
 </script>
 

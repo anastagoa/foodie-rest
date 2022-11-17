@@ -13,19 +13,6 @@ const app = express()
 app.use(express.json())
 app.use('/api', router)
 
-// app.use((req, res) => {
-//   // res.setHeader('Access-Control-Allow-Origin', '*');
-//   // res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-//
-//   res.header("Accept-Language", "ru");
-//
-//   // res.header("Access-Control-Allow-Credentials", "true");
-//   // res.header( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" );
-//   // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-// });
-
-
-
 router.post('/categories', CategoryController.create)
 router.get('/categories', CategoryController.getAll)
 router.delete('/categories/:id', CategoryController.delete)
@@ -49,5 +36,3 @@ async function startApp() {
 }
 
 startApp()
-
-// export default router //delete

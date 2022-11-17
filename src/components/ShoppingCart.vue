@@ -163,6 +163,7 @@ export default {
   computed: {
     ...mapGetters({
       cart: 'cart/getCart',
+      lang: 'lang/getCurrent'
     }),
     emptyCart() {
       return this.cart.length === 0
@@ -186,7 +187,10 @@ export default {
       } else {
         return this.totalCost + 350
       }
-    }
+    },
+    // currentCart() {
+    //   return this.cart.filter(item => item.lang !== this.lang)
+    // }
   },
   methods: {
     deleteFromCart(item, index) {
@@ -285,13 +289,14 @@ export default {
     }
   }
   .shopping-cart__total {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding-top: 15px;
     border-top: 1px solid rgba(183, 182, 182, 0.49);
 
     font-size: 17px;
     font-weight: 600;
     opacity: 0.8;
+    text-align: end;
   }
 
   .shopping-cart_empty {

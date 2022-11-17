@@ -132,8 +132,7 @@ export default {
       grid-template-columns: 100%;
       grid-template-areas: 'title' 'counter';
       gap: 5px;
-      //
-      //padding: 10px;
+
       margin: 10px 0;
     }
   }

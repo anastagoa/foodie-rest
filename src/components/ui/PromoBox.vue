@@ -15,6 +15,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'PromoBox',
   props: {
@@ -22,7 +23,7 @@ export default {
       type: Object,
       required: true
     },
-  },
+  }
 }
 </script>
 

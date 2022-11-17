@@ -5,14 +5,14 @@
         {{ $t('main.promo') }}
       </div>
 
-      <Spinner v-if="!promos.length"/>
+      <Spinner v-if="!currentPromos.length"/>
 
       <div
         v-else
         class="promo-page__promos"
       >
         <div
-          v-for="promo in promos"
+          v-for="promo in currentPromos"
           :key="promo.id"
         >
           <promo-box :promo="promo" />
@@ -39,8 +39,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      promos: 'promos/getAll'
+      promos: 'promos/getAll',
+      lang: 'lang/getCurrent'
     }),
+    currentPromos() {
+      return this.promos.filter(promo => promo.lang === this.lang)
+    }
   },
   created () {
     this.$store.dispatch('promos/loadAll')

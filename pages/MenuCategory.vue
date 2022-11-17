@@ -36,7 +36,7 @@ import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 
 export default {
-  name: 'DishCategory',
+  name: 'MenuCategory',
   components: { MenuNavbar, DishBox, Spinner },
   setup() {
     useMeta({
@@ -47,9 +47,12 @@ export default {
     const route = useRoute()
     const currentPathId = computed(() => { return route.params.id })
     const cart = computed(() => { return store.state.cart })
+    const categories = computed(() => { return store.state.categories.all })
+    const lang = computed(() => { return store.state.lang.current })
+    const currentCategories = computed(() => { return categories.value.filter(item => item.lang === lang.value) })
 
     const category = computed(() => {
-      return store.state.categories.all.find(item => item.id === currentPathId.value)
+      return currentCategories.value.find(item => item.id === currentPathId.value)
     })
 
     const loadCategories = () => {
@@ -61,37 +64,15 @@ export default {
 
     return {
       currentPathId,
+      categories,
       category,
       cart,
+      lang,
+      currentCategories,
       loadCategories,
       addToCart
     }
   },
-  // computed: {
-  //   ...mapGetters({
-  //     // cart: 'cart/getCart',
-  //     categories: 'categories/getAll'
-  //   }),
-  //   category() {
-  //     return this.categories.find(item => item.id === this.currentPathId)
-  //   }
-  // },
-
-    // currentPathId() {
-    //   return this.$route.params.id
-    // },
-    // category() {
-    //   return this.categories.find(item => item.id === this.currentPathId)
-    // }
-  // },
-  //  created() {
-  //   this.$store.dispatch('categories/loadAll')
-  // },
-  // methods: {
-  //   addToCart(dish) {
-  //     this.$store.dispatch('cart/addToCart', dish)
-  //   },
-  // },
 }
 
 </script>
