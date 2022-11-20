@@ -19,24 +19,22 @@
         </div>
 
         <div class="shopping-cart__total">
-          {{ $t('order.total') }}:
-          {{ totalCost }}
-          <span> ₽ </span>
+          Total:
+          ${{ totalCost.toFixed(1) }}
         </div>
 
         <div class="shopping-cart__shipping-cost">
-          {{ $t('order.shippingCost') }}
+          Shipping cost is $5, free shipping on orders of $50 or more
         </div>
 
         <div class="shopping-cart__shipping-cost-total">
-          {{ $t('order.shippingCostTotal') }}
-          {{ totalCostDelivery }}
-          <span> ₽ </span>
+          Total amount including shipping cost:
+          ${{ totalCostDelivery.toFixed(1) }}
         </div>
 
         <form class="shopping-cart__form">
           <div class="shopping-cart__contacts-title">
-            {{ $t('order.contactInfo') }}
+            Contact info
           </div>
 
           <div class="shopping-cart__order-block">
@@ -44,7 +42,7 @@
               for="name"
               class="shopping-cart__order-block-label"
             >
-              {{ $t('order.name') }}
+              Name
             </label>
             <input
               id="name"
@@ -57,7 +55,7 @@
               for="email"
               class="shopping-cart__order-block-label"
             >
-              {{ $t('order.email') }}
+              Email
             </label>
             <input
               id="email"
@@ -69,7 +67,7 @@
               v-if="emailError"
               class="shopping-cart__error"
             >
-              {{ $t('errors.emailError') }}
+              Email is incorrect
             </div>
           </div>
           <div class="shopping-cart__order-block">
@@ -77,7 +75,7 @@
               for="phone"
               class="shopping-cart__order-block-label"
             >
-              {{ $t('order.telephone') }}
+              Telephone number
             </label>
             <input
               id="phone"
@@ -89,7 +87,7 @@
               v-if="phoneError"
               class="shopping-cart__error"
             >
-              {{ $t('errors.phoneError') }}
+              Phone is incorrect
             </div>
           </div>
           <div class="shopping-cart__order-block">
@@ -97,7 +95,7 @@
               for="address"
               class="shopping-cart__order-block-label"
             >
-              {{ $t('order.address') }}
+              Address
             </label>
             <input
               id="address"
@@ -107,16 +105,16 @@
           </div>
           <div class="shopping-cart__order-block">
             <label class="shopping-cart__order-block-label">
-              {{ $t('order.comment') }}
+              Comment
             </label>
             <textarea
               id="comment"
               v-model="comment"
-              :placeholder="`${$t('order.describe')}`"
+              placeholder="Your comments to the order (optional)"
             />
           </div>
           <CustomButton
-            :label="`${$t('order.order')}`"
+            label="Order"
             class="order-btn"
             @click="checkForm"
           />
@@ -128,10 +126,10 @@
         class="shopping-cart_empty"
       >
         <div class="shopping-cart_empty-title">
-          {{ $t('cart.empty') }}
+          Your cart is empty :(
         </div>
         <div class="shopping-cart_empty-description">
-          {{ $t('cart.choose') }}
+          Please choose some dishes and add them to the cart
         </div>
       </div>
     </div>
@@ -163,7 +161,6 @@ export default {
   computed: {
     ...mapGetters({
       cart: 'cart/getCart',
-      lang: 'lang/getCurrent'
     }),
     emptyCart() {
       return this.cart.length === 0
@@ -182,15 +179,12 @@ export default {
       return result
     },
     totalCostDelivery() {
-      if(this.totalCost >= 3000) {
+      if(this.totalCost >= 50) {
         return this.totalCost
       } else {
-        return this.totalCost + 350
+        return this.totalCost + 5
       }
     },
-    // currentCart() {
-    //   return this.cart.filter(item => item.lang !== this.lang)
-    // }
   },
   methods: {
     deleteFromCart(item, index) {

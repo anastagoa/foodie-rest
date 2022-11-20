@@ -1,7 +1,7 @@
 <template>
   <div class="not-found">
     <div class="not-found__text">
-      {{ $t('errors.notFound') }}
+      Page not found
     </div>
 
     <router-link
@@ -10,7 +10,7 @@
       class="not-found__btn"
     >
       <CustomButton
-        :label="`${$t('errors.home')}`"
+        label="Go to the home page"
         class="counter-btn"
       />
     </router-link>

@@ -11,16 +11,15 @@
         </div>
         <div class="dish-box__weight">
           {{ item.weight }}
-          {{ $t('dish.gram') }}
+          g
           /
           {{ item.kcal }}
-          {{ $t('dish.kcal') }}
+          kcal
         </div>
 
         <div class="dish-box__amount">
           <div class="dish-box__price">
-            {{ item.price }}
-            <span> ₽ </span>
+            ${{ item.price.toFixed(1) }}
           </div>
           <div
             class="add-button"

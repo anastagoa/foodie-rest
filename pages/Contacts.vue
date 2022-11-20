@@ -2,20 +2,20 @@
   <div class="contacts-page">
     <div class="container">
       <div class="contacts-page__title">
-        {{ $t('main.contacts') }}
+        Contacts
       </div>
       <div class="contacts-page__items-wrapper">
         <div class="contacts-page__item">
           <div class="contacts-page__item-title">
-            {{ $t('contacts.callCenter') }}
+            Delivery service call center
           </div>
           <div class="contacts-page__item-content">
-            +7 (495) XXX-XX-XX
+            +Х (ХХХ) XXX-XX-XX
           </div>
         </div>
         <div class="contacts-page__item">
           <div class="contacts-page__item-title">
-            {{ $t('contacts.pr') }}
+            PR department
           </div>
           <a
             href="mailto:pr@foodie.com"
@@ -26,7 +26,7 @@
         </div>
         <div class="contacts-page__item">
           <div class="contacts-page__item-title">
-            {{ $t('contacts.job') }}
+            Employment
           </div>
           <a
             href="mailto:job@foodie.com"
@@ -37,7 +37,7 @@
         </div>
         <div class="contacts-page__item">
           <div class="contacts-page__item-title">
-            {{ $t('contacts.purchasing') }}
+            Purchasing department
           </div>
           <a
             href="mailto:info@foodie.com"
@@ -48,7 +48,7 @@
         </div>
         <div class="contacts-page__item">
           <div class="contacts-page__item-title">
-            {{ $t('contacts.marketing') }}
+            Marketing department
           </div>
           <a
             href="mailto:marketing@foodie.com"

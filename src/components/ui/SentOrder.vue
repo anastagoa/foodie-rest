@@ -8,10 +8,10 @@
     </div>
     <div class="sent-order__message">
       <div class="sent-order__title">
-        {{ $t('order.thanks') }}
+        Thank you for your order!
       </div>
       <div class="sent-order__text">
-        {{ $t('order.contact') }}
+        If necessary, our specialist will contact you
       </div>
     </div>
   </div>

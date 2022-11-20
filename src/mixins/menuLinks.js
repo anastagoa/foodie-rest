@@ -4,15 +4,15 @@ export default {
       return [
         {
           path: '/about',
-          title: 'main.about'
+          title: 'about'
         },
         {
           path: '/promo',
-          title: 'main.promo'
+          title: 'promo'
         },
         {
           path: '/contacts',
-          title: 'main.contacts'
+          title: 'contacts'
         },
       ]
     },

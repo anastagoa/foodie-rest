@@ -47,12 +47,9 @@ export default {
     const route = useRoute()
     const currentPathId = computed(() => { return route.params.id })
     const cart = computed(() => { return store.state.cart })
-    const categories = computed(() => { return store.state.categories.all })
-    const lang = computed(() => { return store.state.lang.current })
-    const currentCategories = computed(() => { return categories.value.filter(item => item.lang === lang.value) })
 
     const category = computed(() => {
-      return currentCategories.value.find(item => item.id === currentPathId.value)
+      return store.state.categories.all.find(item => item.id === currentPathId.value)
     })
 
     const loadCategories = () => {
@@ -64,11 +61,8 @@ export default {
 
     return {
       currentPathId,
-      categories,
       category,
       cart,
-      lang,
-      currentCategories,
       loadCategories,
       addToCart
     }

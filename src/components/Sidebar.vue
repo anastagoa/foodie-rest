@@ -13,7 +13,7 @@
       </div>
 
       <div class="sidebar__title">
-        {{ $t('menu.mainMenu') }}
+        Main menu
       </div>
       <ul class="sidebar__list">
         <li
@@ -23,12 +23,12 @@
           :class="[activeItem(item.id) ? 'sidebar__item_active' : '']"
           @click="selectCategory(item.id)"
         >
-          {{ $t(item.name) }}
+          {{ item.name }}
         </li>
       </ul>
 
       <div class="sidebar__title">
-        {{ $t('main.info') }}
+        Information
       </div>
 
       <router-link
@@ -43,7 +43,7 @@
           :class="[link.path === currentPath ? 'sidebar__item_active' : '']"
           @click="closeSidebar"
         >
-          {{ $t(link.title) }}
+          {{ link.title }}
         </li>
       </router-link>
     </div>
@@ -51,23 +51,23 @@
 
     <div class="sidebar__bottom">
       <div class="sidebar__tel">
-        +7 (495) XXX-XX-XX
+        +Х (ХХХ) XXX-XX-XX
       </div>
       <div class="sidebar__time">
         <div class="sidebar__time-block">
           <div class="sidebar__time-text">
-            {{ $t('order.accept') }}
+            We accept orders
           </div>
           <div class="sidebar__time-info">
-            {{ $t('order.acceptTime') }}
+            from 10:00am to 10:30pm
           </div>
         </div>
         <div class="sidebar__time-block">
           <div class="sidebar__time-text">
-            {{ $t('order.delivery') }}
+            Delivery hours:
           </div>
           <div class="sidebar__time-info">
-            {{ $t('order.deliveryTime') }}
+            from 11:00am to 11:30pm
           </div>
         </div>
       </div>

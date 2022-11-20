@@ -3,8 +3,8 @@ import Category from './Category.mjs'
 class CategoryController {
   async create (req, res) {
     try {
-      const { title, id, dishes, lang } = req.body
-      const category = await Category.create({ title, id, dishes, lang })
+      const { title, id, dishes } = req.body
+      const category = await Category.create({ title, id, dishes })
       res.json(category)
     } catch (e) {
       res.status(500).json(e)

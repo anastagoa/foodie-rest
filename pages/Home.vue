@@ -5,10 +5,10 @@
 
       <div class="home__title">
         <div class="home__title-rest">
-          {{ $t('main.restaurant') }}
+          Author's cuisine restaurant
         </div>
         <div class="home__title-home">
-          {{ $t('main.home') }}
+          In your home
         </div>
       </div>
 

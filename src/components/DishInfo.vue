@@ -7,21 +7,20 @@
       </div>
       <div class="dish-info__amount">
         <div class="dish-info__price">
-          {{ item.price }}
-          <span> ₽ </span>
+          ${{ item.price }}
         </div>
         <CustomButton
-          :label="`${$t('order.add')}`"
+          label="Add"
           class="counter-btn"
           @click="addToCart(item)"
         />
       </div>
       <div class="dish-info__weight">
         {{ item.weight }}
-        {{ $t('dish.gram') }}
+        g
         /
         {{ item.kcal }}
-        {{ $t('dish.kcal') }}
+        kcal
       </div>
       <div class="dish-info__ingredients">
         {{ item.description }}

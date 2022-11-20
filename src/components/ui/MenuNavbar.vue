@@ -9,7 +9,7 @@
           :class="[activeItem(item.id) ? 'menu-navbar__item_active' : '']"
           @click="selectCategory(item.id)"
         >
-          {{ $t(item.name) }}
+          {{ item.name }}
         </li>
       </ul>
 
@@ -27,7 +27,7 @@
           :class="[activeItem(item.id) ? 'menu-navbar__item_active' : '']"
           @click="selectCategory(item.id)"
         >
-          {{ $t(item.name) }}
+          {{ item.name }}
         </swiper-slide>
       </swiper>
     </div>

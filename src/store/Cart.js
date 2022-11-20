@@ -5,7 +5,7 @@ const cart = {
   namespaced: true,
   state: {
     cart: cartItems ? JSON.parse(cartItems) : [],
-    total: cartCount ? parseInt(cartCount) : 0,
+    total: cartCount ? Number(cartCount) : 0,
   },
   mutations: {
     SET_CART (state, payload) {

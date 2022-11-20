@@ -22,7 +22,7 @@
         <div class="footer__right">
           <div class="footer__links">
             <div class="footer__links-title">
-              {{ $t('main.info') }}
+              Information
             </div>
             <router-link
               v-for="link in menuLinks"
@@ -32,13 +32,13 @@
               class="footer__link"
               :class="[link.path === currentPath ? 'header__link_active' : '']"
             >
-              <div>{{ $t(link.title) }}</div>
+              <div>{{ link.title }}</div>
             </router-link>
           </div>
 
           <div class="footer__social-media">
             <div class="footer__social-text">
-              {{ $t('main.social') }}
+              We're on social media:
             </div>
             <a
               href=""
@@ -62,23 +62,23 @@
 
           <div class="footer__info">
             <div class="footer__tel">
-              +7 (495) XXX-XX-XX
+              +Х (ХХХ) XXX-XX-XX
             </div>
             <div class="footer__time">
               <div class="footer__time-block">
                 <div class="footer__time-text">
-                  {{ $t('order.accept') }}
+                  We accept orders
                 </div>
                 <div class="footer__time-info">
-                  {{ $t('order.acceptTime') }}
+                  from 10:00am to 10:30pm
                 </div>
               </div>
               <div class="footer__time-block">
                 <div class="footer__time-text">
-                  {{ $t('order.delivery') }}
+                  Delivery hours:
                 </div>
                 <div class="footer__time-info">
-                  {{ $t('order.deliveryTime') }}
+                  from 11:00am to 11:30pm
                 </div>
               </div>
             </div>
