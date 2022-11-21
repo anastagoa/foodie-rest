@@ -1,28 +1,27 @@
-import Category from './Category.mjs'
+import CategoryService from './CategoryService.mjs'
 
 class CategoryController {
-  async create (req, res) {
+  async create(req, res) {
     try {
-      const { title, id, dishes } = req.body
-      const category = await Category.create({ title, id, dishes })
+      const category = await CategoryService.create(req.body)
       res.json(category)
     } catch (e) {
       res.status(500).json(e)
     }
   }
-  async getAll (req, res) {
+
+  async getAll(req, res) {
     try {
-      const categories = await Category.find()
-      return res.json(categories)
+      const categories = await CategoryService.getAll();
+      return res.json(categories);
     } catch (e) {
       res.status(500).json(e)
     }
   }
 
-  async delete (req, res) {
+  async delete(req, res) {
     try {
-      const {id} = req.params
-      const category = await Category.findByIdAndDelete(id)
+      const category = await CategoryService.delete(req.params.id);
       return res.json(category)
     } catch (e) {
       res.status(500).json(e)

@@ -133,11 +133,11 @@ export default {
         }
 
         &:first-of-type {
-          background-image: url('../src/assets/img/about-1.jpg'); //https://unsplash.com/photos/vLv9bQzykIA
+          background-image: url('../src/assets/img/about-1.jpg');
         }
 
         &:last-of-type {
-          background-image: url('../src/assets/img/about-2.jpg'); //https://unsplash.com/photos/kP8QyKwd1r0
+          background-image: url('../src/assets/img/about-2.jpg');
         }
       }
     }
@@ -148,7 +148,7 @@ export default {
     height: 450px;
     margin-bottom: 70px;
 
-    background-image: url('../src/assets/img/promo.png'); //https://unsplash.com/photos/rtJCcnZgdRg
+    background-image: url('../src/assets/img/promo.png');
     background-repeat: no-repeat;
     background-position: 100% 100%;
     background-size: cover;

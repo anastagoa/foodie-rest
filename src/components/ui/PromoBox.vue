@@ -1,7 +1,10 @@
 <template>
   <div class="promo-box">
     <div class="promo-box__layer">
-      <div class="promo-box__img" />
+      <div
+        class="promo-box__img"
+        :style="{ backgroundImage: `url(${currentImage()})` }"
+      />
       <div class="promo-box__content">
         <div class="promo-box__title">
           {{ promo.title }}
@@ -22,7 +25,12 @@ export default {
     promo: {
       type: Object,
       required: true
-    },
+    }
+  },
+  methods: {
+    currentImage () {
+      return require(`../../assets/img/promos/${this.promo.img}`)
+    }
   }
 }
 </script>
@@ -50,7 +58,6 @@ export default {
       height: 100%;
       opacity: 0.3;
 
-      background-image: url('../../../src/assets/img/promo.png'); //https://unsplash.com/photos/rtJCcnZgdRg
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;

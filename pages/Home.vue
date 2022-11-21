@@ -104,7 +104,7 @@ export default {
     justify-content: center;
     align-items: center;
 
-    background-image: url('../src/assets/img/main-banner.png'); //https://unsplash.com/photos/1Qt-W4BGrgc
+    background-image: url('../src/assets/img/main-banner.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

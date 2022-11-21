@@ -327,6 +327,16 @@ export default {
       display: none;
     }
 
+    .header__menu-burger {
+      position: absolute;
+      left: 10px;
+      top: calc(50% - 16px)
+    }
+
+    .header__logo {
+      margin: 0 auto;
+    }
+
     .header__cart {
       position: fixed;
       right: 20px;

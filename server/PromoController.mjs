@@ -1,29 +1,27 @@
-import Promo from './Promo.mjs'
+import PromoService from './PromoService.mjs'
 
 class PromoController {
-  async create (req, res) {
+  async create(req, res) {
     try {
-      const { title, description } = req.body
-      const promo = await Promo.create({ title, description })
+      const promo = await PromoService.create(req.body)
       res.json(promo)
     } catch (e) {
       res.status(500).json(e)
     }
   }
 
-  async getAll (req, res) {
+  async getAll(req, res) {
     try {
-      const promos = await Promo.find()
-      return res.json(promos)
+      const promos = await PromoService.getAll();
+      return res.json(promos);
     } catch (e) {
       res.status(500).json(e)
     }
   }
 
-  async delete (req, res) {
+  async delete(req, res) {
     try {
-      const {id} = req.params
-      const promo = await Promo.findByIdAndDelete(id)
+      const promo = await PromoService.delete(req.params.id);
       return res.json(promo)
     } catch (e) {
       res.status(500).json(e)
