@@ -8,9 +8,9 @@
           src="@/assets/img/fork.svg"
         >
         <div class="main-info__item-text">
-          {{ $t('order.accept') }}
+          We accept orders
           <br>
-          {{ $t('order.acceptTime') }}
+          from 10:00am to 10:30pm
         </div>
       </div>
       <div class="main-info__item">
@@ -20,9 +20,9 @@
           src="@/assets/img/clock.svg"
         >
         <div class="main-info__item-text">
-          {{ $t('order.delivery') }}
+          Delivery hours:
           <br>
-          {{ $t('order.deliveryTime') }}
+          from 11:00am to 11:30pm
         </div>
       </div>
       <div class="main-info__item">
@@ -32,9 +32,9 @@
           src="@/assets/img/smartphone.svg"
         >
         <div class="main-info__item-text">
-          {{ $t('main.contacts') }}:
+          Contacts:
           <br>
-          +7 (495) XXX-XX-XX
+          +Х (ХХХ) XXX-XX-XX
         </div>
       </div>
     </div>

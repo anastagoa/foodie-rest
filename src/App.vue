@@ -9,16 +9,20 @@
 import MainLayout from '@/layouts/MainLayout.vue'
 import '@/assets/css/styles.scss'
 
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
 export default {
   components: { MainLayout },
-  computed: {
-    layout () {
-      return (this.$route.meta.layout || 'main') + 'Layout'
-    },
-  }
+  setup() {
+    const route = useRoute()
+    const layout = computed(() => {  return (route.meta.layout || 'main') + 'Layout' })
+
+    return {
+      layout
+    }
+  },
 }
 
 </script>
-<style lang="scss">
 
-</style>

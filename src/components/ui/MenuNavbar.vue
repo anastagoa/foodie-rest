@@ -9,7 +9,7 @@
           :class="[activeItem(item.id) ? 'menu-navbar__item_active' : '']"
           @click="selectCategory(item.id)"
         >
-          {{ $t(item.name) }}
+          {{ item.name }}
         </li>
       </ul>
 
@@ -24,9 +24,10 @@
           v-for="item in menuItems"
           :key="item.id"
           class="menu-navbar__item_mobile"
+          :class="[activeItem(item.id) ? 'menu-navbar__item_active' : '']"
           @click="selectCategory(item.id)"
         >
-          {{ $t(item.name) }}
+          {{ item.name }}
         </swiper-slide>
       </swiper>
     </div>
@@ -40,29 +41,36 @@ import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css/bundle';
 
+import { computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+
 export default {
   name: 'MainMenu',
   components: { Swiper, SwiperSlide },
   mixins: [ menuItems ],
-  setup() {
+  emits: ['closeSidebar'],
+  setup(_, { emit }) {
+    const router = useRouter()
+    const route = useRoute()
+
+    const currentPath = computed(() => { return route.path })
+
+    const selectCategory = (id) => {
+      router.replace('/menu/' + `${id}`)
+      emit('closeSidebar')
+    }
+
+    const activeItem = (id) => {
+      return currentPath.value === '/menu/' + `${id}`
+    }
+
     return {
+      currentPath,
+      activeItem,
+      selectCategory,
       modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
     };
   },
-  computed: {
-    currentPath() {
-      return this.$route.path
-    }
-  },
-  methods: {
-    activeItem (id) {
-      return this.currentPath === '/menu/' + `${id}`
-    },
-    selectCategory (id) {
-      this.$router.replace('/menu/' + `${id}`)
-      this.$emit('closeSidebar')
-    },
-  }
 }
 </script>
 
@@ -112,8 +120,6 @@ export default {
     padding: 0;
     .menu-navbar {
       border-radius: 0;
-      width: 105%;
-      margin-right: -25px;
       .menu-navbar__list {
         display: none;
       }

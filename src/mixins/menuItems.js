@@ -3,43 +3,43 @@ export default {
     menuItems () {
       return [
         {
-          name: this.$t('menu.coldAppetizers'),
+          name: 'Cold appetizers',
           id: 'cold-appetizers'
         },
         {
-          name: this.$t('menu.hotAppetizers'),
+          name: 'Hot appetizers',
           id: 'hot-appetizers'
         },
         {
-          name: this.$t('menu.salads'),
+          name: 'Salads',
           id: 'salads'
         },
         {
-          name: this.$t('menu.soups'),
+          name: 'Soups',
           id: 'soups'
         },
         {
-          name: this.$t('menu.meatAndPoultry'),
+          name: 'Meat and poultry',
           id: 'meat-and-poultry'
         },
         {
-          name: this.$t('menu.fishAndSeafood'),
+          name: 'Fish and seafood',
           id: 'fish-and-seafood'
         },
         {
-          name: this.$t('menu.garnish'),
+          name: 'Garnish',
           id: 'garnish'
         },
         {
-          name: this.$t('menu.breadAndPastries'),
+          name: 'Bread and pastries',
           id: 'bread-and-pastries'
         },
         {
-          name: this.$t('menu.desserts'),
+          name: 'Desserts',
           id: 'desserts'
         },
         {
-          name: this.$t('menu.drinks'),
+          name:'Drinks',
           id: 'drinks'
         },
       ]

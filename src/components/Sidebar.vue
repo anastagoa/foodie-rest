@@ -13,7 +13,7 @@
       </div>
 
       <div class="sidebar__title">
-        {{ $t('menu.mainMenu') }}
+        Main menu
       </div>
       <ul class="sidebar__list">
         <li
@@ -23,12 +23,12 @@
           :class="[activeItem(item.id) ? 'sidebar__item_active' : '']"
           @click="selectCategory(item.id)"
         >
-          {{ $t(item.name) }}
+          {{ item.name }}
         </li>
       </ul>
 
       <div class="sidebar__title">
-        {{ $t('main.info') }}
+        Information
       </div>
 
       <router-link
@@ -41,8 +41,9 @@
         <li
           class="sidebar__item"
           :class="[link.path === currentPath ? 'sidebar__item_active' : '']"
+          @click="closeSidebar"
         >
-          {{ $t(link.title) }}
+          {{ link.title }}
         </li>
       </router-link>
     </div>
@@ -50,23 +51,23 @@
 
     <div class="sidebar__bottom">
       <div class="sidebar__tel">
-        +7 (495) XXX-XX-XX
+        +Х (ХХХ) XXX-XX-XX
       </div>
       <div class="sidebar__time">
         <div class="sidebar__time-block">
           <div class="sidebar__time-text">
-            {{ $t('order.accept') }}
+            We accept orders
           </div>
           <div class="sidebar__time-info">
-            {{ $t('order.acceptTime') }}
+            from 10:00am to 10:30pm
           </div>
         </div>
         <div class="sidebar__time-block">
           <div class="sidebar__time-text">
-            {{ $t('order.delivery') }}
+            Delivery hours:
           </div>
           <div class="sidebar__time-info">
-            {{ $t('order.deliveryTime') }}
+            from 11:00am to 11:30pm
           </div>
         </div>
       </div>
@@ -79,25 +80,36 @@
 import menuItems from '@/mixins/menuItems.js'
 import menuLinks from '@/mixins/menuLinks'
 
+import { computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+
 export default {
   name: 'Sidebar',
   mixins: [ menuItems, menuLinks ],
-  computed: {
-    currentPath() {
-      return this.$route.path
+  emits: ['increaseNum', 'closeSidebar'],
+  setup(_, { emit }) {
+    const router = useRouter()
+    const route = useRoute()
+
+    const currentPath = computed(() => { return route.path })
+
+    const closeSidebar = () => {
+      emit('closeSidebar')
     }
-  },
-  methods: {
-    activeItem(id) {
-      return this.currentPath === '/menu/' + `${id}`
-    },
-    selectCategory (id) {
-      this.$router.replace('/menu/' + `${id}`)
-      this.$emit('closeSidebar')
-    },
-    closeSidebar() {
-      this.$emit('closeSidebar')
-    },
+    const selectCategory = (id) => {
+      router.replace('/menu/' + `${id}`)
+      emit('closeSidebar')
+    }
+    const activeItem = (id) => {
+      return currentPath.value === '/menu/' + `${id}`
+    }
+
+    return {
+      currentPath,
+      closeSidebar,
+      selectCategory,
+      activeItem
+    }
   }
 }
 </script>

@@ -1,5 +1,8 @@
 # my-rest
 
+
+
+
 ## Project setup
 ```
 npm install
@@ -15,10 +18,14 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+[comment]: <> (### Lints and fixes files)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[comment]: <> (```)
+
+[comment]: <> (npm run lint)
+
+[comment]: <> (```)
+
+[comment]: <> (### Customize configuration)
+
+[comment]: <> (See [Configuration Reference]&#40;https://cli.vuejs.org/config/&#41;.)

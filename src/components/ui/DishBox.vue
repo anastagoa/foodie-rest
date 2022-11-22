@@ -11,16 +11,15 @@
         </div>
         <div class="dish-box__weight">
           {{ item.weight }}
-          {{ $t('dish.gram') }}
+          g
           /
           {{ item.kcal }}
-          {{ $t('dish.kcal') }}
+          kcal
         </div>
 
         <div class="dish-box__amount">
           <div class="dish-box__price">
-            {{ item.price }}
-            <span> ₽ </span>
+            ${{ item.price.toFixed(1) }}
           </div>
           <div
             class="add-button"
@@ -44,6 +43,7 @@
 
 import Popup from '@/components/ui/Popup'
 import DishInfo from '@/components/DishInfo'
+import { ref, toRefs, watch  } from 'vue'
 
 export default {
   name: 'DishBox',
@@ -54,35 +54,36 @@ export default {
       required: true
     },
   },
-  data() {
-    return {
-      openedPopup: false,
-      item: {}
-    }
-  },
-  watch: {
-    dish(newValue) {
-      this.item = Object.assign({}, newValue)
-    }
-  },
-  mounted () {
-    this.item = Object.assign({}, this.dish);
-  },
-  methods: {
-    addToCart() {
-      this.$emit('addToCart', this.item)
-    },
-    openPopup(event) {
+  emits: ['addToCart'],
+  setup(props, { emit }) {
+    const openedPopup = ref(false)
+    const { dish } = toRefs(props)
+    const item = ref(Object.assign({}, dish.value))
+
+    watch(dish, (newValue) => {
+      item.value = Object.assign({}, newValue)
+    })
+
+    const closePopup = () => openedPopup.value = false
+
+    const addToCart = () => emit('addToCart', item.value)
+
+    const openPopup = (event) => {
       let addBtn = document.querySelectorAll('.add-button')
 
-      this.openedPopup = !Array.from(addBtn).find(btn => {
-       return btn === event.target
+      openedPopup.value = !Array.from(addBtn).find(btn => {
+        return btn === event.target
       })
-    },
-    closePopup() {
-      this.openedPopup = false
-    },
-  },
+    }
+
+    return {
+      openedPopup,
+      item,
+      openPopup,
+      closePopup,
+      addToCart
+    }
+  }
 }
 </script>
 

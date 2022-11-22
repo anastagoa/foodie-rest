@@ -28,7 +28,7 @@
           class="header__link"
           :class="[link.path === currentPath ? 'header__link_active' : '']"
         >
-          <li>{{ $t(link.title) }}</li>
+          <li>{{ link.title }}</li>
         </router-link>
       </ul>
     </nav>
@@ -48,21 +48,12 @@
         class="cart__sum"
         :class="[showTotal ? 'cart__sum_visible' : '']"
       >
-        <span> = </span>
-        <span> &nbsp; </span>
-        {{ total }}
-        <span> &nbsp; </span>
-        <span> ₽ </span>
+        <span> = </span> &nbsp;
+        <span> $ </span>
+        {{ total.toFixed(1) }}
       </div>
     </div>
 
-    <LangSwitcher
-      class="lang-switcher"
-      :all-locales="allLocales"
-      :current-lang="currentLang"
-      @closeSidebar="closeSidebar"
-      @setLang="setLang"
-    />
     <Sidebar
       v-if="openedSidebar"
       @closeSidebar="closeSidebar"
@@ -71,10 +62,17 @@
     <Popup
       v-if="cartPopup"
       :class="['shopping-cart-popup']"
-      :title="`${$t('order.yourOrder')}:`"
+      title="Your order"
       @closePopup="closeCartPopup"
     >
-      <ShoppingCart />
+      <ShoppingCart @closeCartPopup="closeSentCartPopup" />
+    </Popup>
+
+    <Popup
+      v-if="sentOrder"
+      @closePopup="closeSentPopup"
+    >
+      <SentOrder/>
     </Popup>
   </header>
 </template>
@@ -83,21 +81,22 @@
 
 import {mapGetters} from "vuex";
 
-import LangSwitcher from '@/components/ui/LangSwitcher'
 import Popup from '@/components/ui/Popup'
 import Sidebar from '@/components/Sidebar'
 import menuLinks from '@/mixins/menuLinks'
 import ShoppingCart from '@/components/ShoppingCart'
+import SentOrder from '@/components/ui/SentOrder'
 
 export default {
   name: 'Header',
-  components: { ShoppingCart, Sidebar, LangSwitcher, Popup },
+  components: { SentOrder, ShoppingCart, Sidebar, Popup },
   mixins: [ menuLinks ],
   data () {
     return {
       openedSidebar: false,
       cartPopup: false,
-      showTotal: false
+      showTotal: false,
+      sentOrder: false
     }
   },
   computed: {
@@ -105,12 +104,6 @@ export default {
       cart: 'cart/getCart',
       total: 'cart/getTotal'
     }),
-    currentLang () {
-      return this.$root.$i18n.locale
-    },
-    allLocales() {
-      return process.env.VUE_APP_I18N_SUPPORTED_LOCALES.split(',')
-    },
     emptyCart() {
       return this.cart.length === 0
     },
@@ -152,9 +145,15 @@ export default {
     closeSidebar() {
       this.openedSidebar = false
     },
-    setLang(lang) {
-      this.$root.$i18n.locale = lang
-      this.$store.dispatch('lang/setCurrent', lang)
+    openSentPopup() {
+      this.sentOrder = true
+    },
+    closeSentCartPopup() {
+      this.cartPopup = false
+      this.openSentPopup()
+    },
+    closeSentPopup() {
+      this.sentOrder = false
     }
   },
 }
@@ -182,9 +181,7 @@ export default {
     [menuStart] 60px [menuEnd] 10px
     [logoStart] 150px [logoEnd] 20px
     [navStart] minmax(100px, max-content) [navEnd] 1fr
-    [cartStart] 100px [cartEnd] 20px
-    [langStart] 30px [langEnd] 45px;
-
+    [cartStart] 100px [cartEnd] 10px;
 
   .header__menu-burger {
     grid-column: menuStart / menuEnd;
@@ -316,9 +313,6 @@ export default {
       }
     }
   }
-  .lang-switcher {
-    grid-column: langStart / langEnd;
-  }
 }
 
 @media (max-width: 991px) {
@@ -331,6 +325,16 @@ export default {
 
     .header__menu {
       display: none;
+    }
+
+    .header__menu-burger {
+      position: absolute;
+      left: 10px;
+      top: calc(50% - 16px)
+    }
+
+    .header__logo {
+      margin: 0 auto;
     }
 
     .header__cart {

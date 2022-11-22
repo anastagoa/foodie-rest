@@ -4,15 +4,15 @@
       <div class="about-page__content">
         <div class="about-page__info">
           <div class="about-page__info-title">
-            {{ $t('about.about') }}
+            About the restaurant
           </div>
           <div class="about-page__info-text">
             <p class="about-page__info-text-p">
-              {{ $t('about.description') }}
+              Foodie is an author's cuisine restaurant delivery. You have a great opportunity to taste gourmet restaurant dishes in your home. Dishes are created depending on the seasonality of local products and the inspiration of our chef. Special attention is paid to creativity, high-quality products and aesthetics.
             </p>
 
             <p class="about-page__info-text-p">
-              {{ $t('about.experience') }}
+              Foodie will give you a new gastronomic experience.
             </p>
 
             <router-link
@@ -21,7 +21,7 @@
               class="about-page__btn-wrapper"
             >
               <CustomButton
-                :label="`${$t('main.menu')}`"
+                label="Menu"
                 class="about-page__btn"
               />
             </router-link>
@@ -133,11 +133,11 @@ export default {
         }
 
         &:first-of-type {
-          background-image: url('../src/assets/img/about-1.jpg'); //https://unsplash.com/photos/vLv9bQzykIA
+          background-image: url('../src/assets/img/about-1.jpg');
         }
 
         &:last-of-type {
-          background-image: url('../src/assets/img/about-2.jpg'); //https://unsplash.com/photos/kP8QyKwd1r0
+          background-image: url('../src/assets/img/about-2.jpg');
         }
       }
     }
@@ -148,7 +148,7 @@ export default {
     height: 450px;
     margin-bottom: 70px;
 
-    background-image: url('../src/assets/img/promo.png'); //https://unsplash.com/photos/rtJCcnZgdRg
+    background-image: url('../src/assets/img/promo.png');
     background-repeat: no-repeat;
     background-position: 100% 100%;
     background-size: cover;

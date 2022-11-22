@@ -13,7 +13,7 @@
           @increaseNum="increaseNum"
         />
         <div class="dish-mini-box__price">
-          {{ product.price }} ₽
+          ${{ product.price.toFixed(1) }}
         </div>
         <div
           class="dish-mini-box__cross"
@@ -46,7 +46,7 @@ export default {
       product: {}
     }
   },
-  async created () {
+  created () {
     this.product = Object.assign({}, this.item);
   },
   methods: {
@@ -87,10 +87,11 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
+    align-items: center;
     grid-template-areas: 'title counter';
     gap: 20px;
 
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
     margin: 20px 0;
 
     .dish-mini-box__title {
@@ -108,7 +109,7 @@ export default {
     grid-area: counter;
 
     .dish-mini-box__price {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 600;
     }
 
@@ -132,8 +133,7 @@ export default {
       grid-template-columns: 100%;
       grid-template-areas: 'title' 'counter';
       gap: 5px;
-      //
-      //padding: 10px;
+
       margin: 10px 0;
     }
   }

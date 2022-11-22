@@ -2,10 +2,15 @@
   <div class="promo-page">
     <div class="container">
       <div class="promo-page__title">
-        {{ $t('main.promo') }}
+        Promo
       </div>
 
-      <div class="promo-page__promos">
+      <Spinner v-if="!promos.length"/>
+
+      <div
+        v-else
+        class="promo-page__promos"
+      >
         <div
           v-for="promo in promos"
           :key="promo.id"
@@ -22,11 +27,11 @@
 import {mapGetters} from "vuex";
 import PromoBox from '@/components/ui/PromoBox'
 import { useMeta } from 'vue-meta'
-
+import Spinner from '@/components/ui/Spinner'
 
 export default {
   name: 'Promo',
-  components: { PromoBox },
+  components: { Spinner, PromoBox },
   setup() {
     useMeta({
       title: 'Promo'
@@ -34,7 +39,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      promos: 'promos/getAll'
+      promos: 'promos/getAll',
     }),
   },
   created () {

@@ -5,10 +5,10 @@
 
       <div class="home__title">
         <div class="home__title-rest">
-          {{ $t('main.restaurant') }}
+          Author's cuisine restaurant
         </div>
         <div class="home__title-home">
-          {{ $t('main.home') }}
+          In your home
         </div>
       </div>
 
@@ -49,25 +49,15 @@ import {mapGetters} from "vuex";
 
 import MenuNavbar from '@/components/ui/MenuNavbar'
 import Info from '@/components/ui/Info'
-import { useMeta } from 'vue-meta'
 import PromoSwiperRow from '@/components/PromoSwiperRow'
 
 export default {
   name: "Home",
   components: { PromoSwiperRow, MenuNavbar, Info },
-  setup() {
-    useMeta({
-      title: 'Foodie'
-    })
-  },
   computed: {
     ...mapGetters({
-      categories: 'categories/getAll',
       promos: 'promos/getAll'
     }),
-  },
-  created () {
-    this.$store.dispatch('categories/loadAll')
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
@@ -114,7 +104,7 @@ export default {
     justify-content: center;
     align-items: center;
 
-    background-image: url('../src/assets/img/main-banner.png'); //https://unsplash.com/photos/1Qt-W4BGrgc
+    background-image: url('../src/assets/img/main-banner.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
