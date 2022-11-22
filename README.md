@@ -1,9 +1,9 @@
-# foodie
+# Foodie
 
 This is a demo project for author's cuisine restaurant delivery. 
 It was created to get more practice at Composition API, note Vue 3 features compared to Vue 2 and learn how to build web server.
 
-###Technologies used:
+### Technologies used:
 
 - Vue 3
 - CSS/SCSS
