@@ -8,7 +8,9 @@
           </div>
           <div class="about-page__info-text">
             <p class="about-page__info-text-p">
-              Foodie is an author's cuisine restaurant delivery. You have a great opportunity to taste gourmet restaurant dishes in your home. Dishes are created depending on the seasonality of local products and the inspiration of our chef. Special attention is paid to creativity, high-quality products and aesthetics.
+              Foodie is an author's cuisine restaurant delivery. You have a great opportunity to taste gourmet
+              restaurant dishes in your home. Dishes are created depending on the seasonality of local products and the
+              inspiration of our chef. Special attention is paid to creativity, high-quality products and aesthetics.
             </p>
 
             <p class="about-page__info-text-p">
