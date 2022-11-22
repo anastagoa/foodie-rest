@@ -11,21 +11,6 @@ It was created to get more practice at Composition API, note Vue 3 features comp
 - Express.js
 - MongoDB as a database
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
 [comment]: <> (### Lints and fixes files)
 
 [comment]: <> (```)
