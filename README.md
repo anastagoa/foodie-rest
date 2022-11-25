@@ -11,7 +11,7 @@ It was created to get more practice at Composition API, note Vue 3 features comp
 - Express.js
 - MongoDB as a database
 
-[foodie](https://anastagoa.github.io/foodie-rest/)
+[foodie](https://anastagoa.github.io/vue-project-foodie/)
 
 [comment]: <> (### Lints and fixes files)
 
