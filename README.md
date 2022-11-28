@@ -11,7 +11,7 @@ It was created to get more practice at Composition API, note Vue 3 features comp
 - Express.js
 - MongoDB as a database
 
-###Getting started:
+### Getting started:
 
 ```
 npm start
