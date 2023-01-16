@@ -48,7 +48,7 @@
 import {mapGetters} from "vuex";
 
 import MenuNavbar from '@/components/ui/MenuNavbar'
-import Info from '@/components/ui/Info'
+import Info from '@/components/Info'
 import PromoSwiperRow from '@/components/PromoSwiperRow'
 
 export default {

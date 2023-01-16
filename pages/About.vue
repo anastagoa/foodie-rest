@@ -45,7 +45,7 @@
 
 <script>
 import CustomButton from '@/components/ui/CustomButton'
-import Info from '@/components/ui/Info'
+import Info from '@/components/Info'
 import { useMeta } from 'vue-meta'
 
 export default {

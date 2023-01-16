@@ -85,7 +85,7 @@ import Popup from '@/components/ui/Popup'
 import Sidebar from '@/components/Sidebar'
 import menuLinks from '@/mixins/menuLinks'
 import ShoppingCart from '@/components/ShoppingCart'
-import SentOrder from '@/components/ui/SentOrder'
+import SentOrder from '@/components/SentOrder'
 
 export default {
   name: 'Header',
