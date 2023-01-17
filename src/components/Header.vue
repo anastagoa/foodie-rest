@@ -72,7 +72,7 @@
       v-if="sentOrder"
       @closePopup="closeSentPopup"
     >
-      <SentOrder/>
+      <SentOrder />
     </Popup>
   </header>
 </template>
